@@ -209,9 +209,9 @@ public class AuthorizationService {
         userFromDB.setResetPasswordToken(UUID.randomUUID().toString());
         userRepository.save(userFromDB);
         String message = "Здравствуйте, " + userFromDB.getUsername() + '\n' +
-                "Для смены пароля перейдите по ссылке: https://my-app-for-pr.herokuapp.com/resetPassword/" +
+                "Для смены пароля перейдите по ссылке: http://localhost:8080/resetPassword/" +
                 userFromDB.getResetPasswordToken();
-//        mailSender.send(userFromDB.getEmail(), "Восстановление пароля", message);
+        mailSender.send(userFromDB.getEmail(), "Восстановление пароля", message);
         return "redirect:/login";
     }
 
