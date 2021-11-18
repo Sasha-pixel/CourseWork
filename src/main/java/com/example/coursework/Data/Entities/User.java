@@ -5,6 +5,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
 import java.util.Collection;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -38,10 +39,21 @@ public class User implements UserDetails {
     @Enumerated(EnumType.STRING)
     private Set<Role> roles;
 
+    @OneToMany(mappedBy = "customer")
+    private List<Contract> contracts;
+    
+    @OneToOne
+    @JoinColumn(name = "driver_id")
+    private Driver driver;
+
+    @OneToOne
+    @JoinColumn(name = "car_id")
+    private Car car;
+
     public User() {
     }
 
-    public User(String username, String email, String activationCode, String password, String phoneNumber, String resetPasswordToken, Set<Role> roles) {
+    public User(String username, String email, String activationCode, String password, String phoneNumber, String resetPasswordToken, Set<Role> roles, List<Contract> contracts) {
         this.username = username;
         this.email = email;
         this.activationCode = activationCode;
@@ -49,6 +61,7 @@ public class User implements UserDetails {
         this.phoneNumber = phoneNumber;
         this.resetPasswordToken = resetPasswordToken;
         this.roles = roles;
+        this.contracts = contracts;
     }
 
     public Long getId() {
@@ -115,6 +128,14 @@ public class User implements UserDetails {
 
     public void setRoles(Set<Role> roles) {
         this.roles = roles;
+    }
+
+    public List<Contract> getContracts() {
+        return contracts;
+    }
+
+    public void setContracts(List<Contract> contracts) {
+        this.contracts = contracts;
     }
 
     @Override
