@@ -14,14 +14,8 @@ import java.util.List;
 @Service
 public class AdminService {
 
-//    @Autowired
-//    private OrderService orderService;
-//
     @Autowired
     private EmployeeService employeeService;
-//
-//    @Autowired
-//    private TruckService truckService;
 
     public String getAdminPage(User user, Model model) {
         if (user.getActivationCode() != null)
