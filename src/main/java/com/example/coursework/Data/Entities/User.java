@@ -53,7 +53,7 @@ public class User implements UserDetails {
     public User() {
     }
 
-    public User(String username, String email, String activationCode, String password, String phoneNumber, String resetPasswordToken, Set<Role> roles, List<Contract> contracts) {
+    public User(String username, String email, String activationCode, String password, String phoneNumber, String resetPasswordToken, Set<Role> roles, List<Contract> contracts, Driver driver, Car car) {
         this.username = username;
         this.email = email;
         this.activationCode = activationCode;
@@ -62,6 +62,8 @@ public class User implements UserDetails {
         this.resetPasswordToken = resetPasswordToken;
         this.roles = roles;
         this.contracts = contracts;
+        this.driver = driver;
+        this.car = car;
     }
 
     public Long getId() {
@@ -136,6 +138,22 @@ public class User implements UserDetails {
 
     public void setContracts(List<Contract> contracts) {
         this.contracts = contracts;
+    }
+
+    public Driver getDriver() {
+        return driver;
+    }
+
+    public void setDriver(Driver driver) {
+        this.driver = driver;
+    }
+
+    public Car getCar() {
+        return car;
+    }
+
+    public void setCar(Car car) {
+        this.car = car;
     }
 
     @Override

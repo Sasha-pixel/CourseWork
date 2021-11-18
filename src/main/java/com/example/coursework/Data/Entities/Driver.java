@@ -18,4 +18,45 @@ public class Driver {
 
     @OneToOne(mappedBy = "driver")
     private User user;
+
+    public Driver() {
+    }
+
+    public Driver(String licenseNumber, int drivingExperience, User user) {
+        this.licenseNumber = licenseNumber;
+        this.drivingExperience = drivingExperience;
+        this.user = user;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getLicenseNumber() {
+        return licenseNumber;
+    }
+
+    public void setLicenseNumber(String licenseNumber) {
+        this.licenseNumber = licenseNumber;
+    }
+
+    public int getDrivingExperience() {
+        return drivingExperience;
+    }
+
+    public void setDrivingExperience(int drivingExperience) {
+        this.drivingExperience = drivingExperience;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
 }
