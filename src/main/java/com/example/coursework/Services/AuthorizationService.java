@@ -1,5 +1,6 @@
 package com.example.coursework.Services;
 
+import com.example.coursework.Data.Entities.Contract;
 import com.example.coursework.Data.Entities.Role;
 import com.example.coursework.Data.Entities.User;
 import com.example.coursework.Data.Repositories.UserRepository;
@@ -17,6 +18,7 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.Collections;
+import java.util.List;
 import java.util.UUID;
 
 @Service
@@ -34,8 +36,8 @@ public class AuthorizationService {
     @Autowired
     private MailSender mailSender;
 
-//    @Autowired
-//    private OrderService orderService;
+    @Autowired
+    private ContractService contractService;
 
     public String encode(String password) {
         return bCryptPasswordEncoder.encode(password);
@@ -73,7 +75,7 @@ public class AuthorizationService {
             if (user.getActivationCode() != null)
                 model.addAttribute("notActivated", "Вы не активировали учётную запись," +
                         " в связи с этим, некоторые функции личного кабинета недоступны");
-//            List<Order> userOrders = orderService.findAllByCustomerUsername(user.getUsername());
+            List<Contract> userOrders = contractService.findAllByCustomer(user.getId());
             model.addAttribute("orders", null);
             model.addAttribute("user", user);
             return "mainUser";

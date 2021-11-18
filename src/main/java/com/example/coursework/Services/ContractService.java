@@ -7,19 +7,21 @@ import com.example.coursework.Data.Entities.User;
 import com.example.coursework.Data.Repositories.ContractRepository;
 import com.example.coursework.Mail.MailSender;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
 
 import java.util.List;
 
+@Service
 public class ContractService {
 
     @Autowired
     private ContractRepository contractRepository;
 
-    @Autowired
-    private OrderValidator orderValidator;
+//    @Autowired
+//    private OrderValidator orderValidator;
 
     @Autowired
     private AuthorizationService authorizationService;
@@ -45,16 +47,16 @@ public class ContractService {
         return contractRepository.findAll();
     }
 
-    public List<Contract> findAllByCustomerUsername(String customerUsername) {
-        return contractRepository.findAllByCustomerUsername(customerUsername);
+    public List<Contract> findAllByCustomer(Long id) {
+        return contractRepository.findAllByCustomer(id);
     }
 
     public void delete(Long id) {
         contractRepository.deleteById(id);
     }
 
-    public List<Contract> findAllByOrderByCustomerUsername() {
-        return contractRepository.findAllByOrderByCustomerUsername();
+    public List<Contract> findAllOrderByCustomer() {
+        return contractRepository.findAllOrderByCustomer();
     }
 
     public void pasteOrderForm(Contract orderForm, int numberOfWorkers, Model model) {

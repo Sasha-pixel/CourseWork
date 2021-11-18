@@ -17,13 +17,16 @@ public class AdminService {
     @Autowired
     private EmployeeService employeeService;
 
+    @Autowired
+    private ContractService contractService;
+
     public String getAdminPage(User user, Model model) {
         if (user.getActivationCode() != null)
             model.addAttribute("notActivated", "Вы не активировали учётную запись," +
                     " в связи с этим, некоторые функции личного кабинета недоступны");
         model.addAttribute("user", user);
         model.addAttribute("isChecking", "users");
-        model.addAttribute("allUsersOrders", orderService.findAllByOrderByCustomerUsername());
+        model.addAttribute("allUsersOrders", contractService.findAllOrderByCustomer());
         model.addAttribute("allEmployees", employeeService.findAll());
         return "admin";
     }
@@ -40,14 +43,14 @@ public class AdminService {
             return "redirect:/admin/main";
         }
         else {
-            List<Contract> orderList = new ArrayList<>();
-            for (Contract order1 : orderService.findAll()) {
-                if (order1.getCustomerUsername().toUpperCase().contains(username.toUpperCase()))
-                    orderList.add(order1);
+            List<Contract> contracts = new ArrayList<>();
+            for (Contract contract : contractService.findAll()) {
+                if (contract.getCustomer().getUsername().toUpperCase().contains(username.toUpperCase()))
+                    contracts.add(contract);
             }
             model.addAttribute("username", username);
             model.addAttribute("isChecking", "users");
-            model.addAttribute("allUsersOrders", orderList);
+            model.addAttribute("allUsersOrders", contracts);
             model.addAttribute("allEmployees", employeeService.findAll());
             return "admin";
         }
@@ -66,22 +69,22 @@ public class AdminService {
             model.addAttribute("employee", employee);
             model.addAttribute("isChecking", "employees");
             model.addAttribute("allEmployees", employeeList);
-            model.addAttribute("allUsersOrders", orderService.findAllByOrderByCustomerUsername());
+            model.addAttribute("allUsersOrders", contractService.findAllOrderByCustomer());
             return "admin";
         }
     }
 
-    public String addingCar(Truck truck, User user, BindingResult bindingResult, Model model) {
-        if (!truckService.validateTruck(truck, bindingResult, model)) {
-            truckService.save(truck);
-            return "redirect:/admin/main";
-        }
-        else {
-            model.addAttribute("carNumber_paste", truck.getCarNumber());
-            model.addAttribute("user", user);
-            return "newEmployeeOrCar";
-        }
-    }
+//    public String addingCar(Truck truck, User user, BindingResult bindingResult, Model model) {
+//        if (!truckService.validateTruck(truck, bindingResult, model)) {
+//            truckService.save(truck);
+//            return "redirect:/admin/main";
+//        }
+//        else {
+//            model.addAttribute("carNumber_paste", truck.getCarNumber());
+//            model.addAttribute("user", user);
+//            return "newEmployeeOrCar";
+//        }
+//    }
 
     public String addingEmployee(Employee employee, User user, BindingResult bindingResult, Model model) {
         if (!employeeService.validateEmployee(employee, bindingResult, model)) {
