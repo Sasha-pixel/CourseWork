@@ -54,7 +54,7 @@ public class ContractController {
         }
         Driver driver = driverService.findByLicenseNumber(orderForm.getLicenseNumber());
         if (driver == null)
-            driver = new Driver(orderForm.getLicenseNumber(), orderForm.getDrivingExperience(), user);
+        driver = new Driver(orderForm.getLicenseNumber(), orderForm.getDrivingExperience(), user);
         Car car = carService.findByCarNumberOrVehicleIdentificationNumber(orderForm.getCarNumber(), orderForm.getVehicleIdentificationNumber());
         if (car == null)
             car = new Car(orderForm.getCarNumber(), orderForm.getModel(), orderForm.getYearOfManufacture(), orderForm.getPower(), orderForm.getVehicleIdentificationNumber(), user);
