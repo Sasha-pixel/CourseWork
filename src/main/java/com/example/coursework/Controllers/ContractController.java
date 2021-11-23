@@ -5,6 +5,8 @@ import com.example.coursework.Data.Repositories.CarRepository;
 import com.example.coursework.Data.Repositories.DriverRepository;
 import com.example.coursework.Services.ContractService;
 import com.example.coursework.Services.EmployeeService;
+import com.example.coursework.Validators.CarService;
+import com.example.coursework.Validators.DriverService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
@@ -25,16 +27,11 @@ public class ContractController {
     private EmployeeService employeeService;
 
     @Autowired
-    private DriverRepository driverRepository;
+    private DriverService driverService;
 
     @Autowired
-    private CarRepository carRepository;
+    private CarService carService;
 
-//    @Autowired
-//    private TruckService truckService;
-//
-//    @Autowired
-//    private OrderValidator orderValidator;
 
     @GetMapping("/makeOrder")
     public String makeOrder(@AuthenticationPrincipal User user, Model model) {
@@ -49,23 +46,22 @@ public class ContractController {
                                   BindingResult bindingResult, Model model) {
         List<Employee> workers = employeeService.findAll();
         Employee employee = employeeService.setWorkersToOrder(workers);
-//        List<Truck> trucks = truckService.findAllByDescription(truckDescription);
-//        Truck truck = truckService.setTruckToOrder(orderForm, trucks);
-//        if (orderService.validateOrderForm(orderForm, workersBuf, numberOfWorkers, truck, bindingResult, model)) {
-//            orderService.pasteOrderForm(orderForm, numberOfWorkers, model);
-//            model.addAttribute("user", user);
-//            model.addAttribute("again", "yes");
-//            return "makeOrder";
-//        }
-        Driver driver = new Driver(orderForm.getLicenseNumber(), orderForm.getDrivingExperience(), user);
-        Car car = new Car(orderForm.getCarNumber(), orderForm.getModel(), orderForm.getYearOfManufacture(), orderForm.getPower(), orderForm.getVehicleIdentificationNumber(), user);
+        if (contractService.validateOrderForm(orderForm, bindingResult, model)) {
+            contractService.pasteOrderForm(orderForm, model);
+            model.addAttribute("user", user);
+            model.addAttribute("again", "yes");
+            return "makeOrder";
+        }
+        Driver driver = driverService.findByLicenseNumber(orderForm.getLicenseNumber());
+        if (driver == null)
+            driver = new Driver(orderForm.getLicenseNumber(), orderForm.getDrivingExperience(), user);
+        Car car = carService.findByCarNumberOrVehicleIdentificationNumber(orderForm.getCarNumber(), orderForm.getVehicleIdentificationNumber());
+        if (car == null)
+            car = new Car(orderForm.getCarNumber(), orderForm.getModel(), orderForm.getYearOfManufacture(), orderForm.getPower(), orderForm.getVehicleIdentificationNumber(), user);
         Contract contract = new Contract(user, employee, driver, car, orderForm.getPrice(), false);
-        driverRepository.save(driver);
-        carRepository.save(car);
+        driverService.saveDriver(driver);
+        carService.saveCar(car);
         contractService.save(contract);
-//        List<Contract> contracts = new ArrayList<>();
-//        contracts.add(contract);
-//        car.setContracts(contracts);
         return "redirect:/main";
     }
 

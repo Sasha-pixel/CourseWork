@@ -133,8 +133,8 @@
         function getTodaysDate(){
             date = new Date();
             year = date.getFullYear();
-            yearOld = date.getFullYear() - 10;
-            document.getElementById('yearOfManufacture').setAttribute('min', yearOld);
+            // yearOld = date.getFullYear() - 10;
+            // document.getElementById('yearOfManufacture').setAttribute('min', yearOld);
             document.getElementById('yearOfManufacture').setAttribute('max', year);
         }
     </script>
@@ -186,7 +186,7 @@
             <div><label> Мощность(в л.с.)<a style="color:red">*</a> : <input type="number" min="100" max="400" name="power" id="power" th:value="${power_paste}"/> </label> <span style="color:red" th:text = "${power}" /></div>
             <div><label> VIN<a style="color:red">*</a> : <input type="text" name="vehicleIdentificationNumber" id="vehicleIdentificationNumber" th:value="${vehicleIdentificationNumber_paste}"/> </label> <span style="color:red" th:text = "${vehicleIdentificationNumber}" /></div>
             <div><label> Водительское удостоверение<a style="color:red">*</a> : <input type="text" name="licenseNumber" id="licenseNumber" th:value="${licenseNumber_paste}"/> </label> <span style="color:red" th:text = "${licenseNumber}" /></div>
-            <div><label> Водительский стаж<a style="color:red">*</a> : <input type="number" min="0" max="70" id="drivingExperience" name="drivingExperience" th:value="${drivingExperience_paste}"/> </label> <span style="color:red" th:text = "${drivingExperience}" /></div>
+            <div><label> Водительский стаж<a style="color:red">*</a> : <input type="number" min="0" id="drivingExperience" name="drivingExperience" th:value="${drivingExperience_paste}"/> </label> <span style="color:red" th:text = "${drivingExperience}" /></div>
             <div><input type="button" value="рассчитать стоимость" onclick="countInsuranse()" /></div>
             <div><label> Стоимость оформления ОСАГО: <input type="text" id="price" name="price" th:value="${price_paste}" readonly/> </label>
                 <div><input type="submit" id="OK" value="принять" disabled/></div>

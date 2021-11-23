@@ -3,6 +3,7 @@ package com.example.coursework.Services;
 import com.example.coursework.Data.Entities.*;
 import com.example.coursework.Data.Repositories.ContractRepository;
 import com.example.coursework.Mail.MailSender;
+import com.example.coursework.Validators.ContractFormModelValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
@@ -17,8 +18,8 @@ public class ContractService {
     @Autowired
     private ContractRepository contractRepository;
 
-//    @Autowired
-//    private OrderValidator orderValidator;
+    @Autowired
+    private ContractFormModelValidator contractFormModelValidator;
 
     @Autowired
     private AuthorizationService authorizationService;
@@ -55,7 +56,7 @@ public class ContractService {
         return contractRepository.findAllByOrderByCustomer();
     }
 
-    public void pasteOrderForm(ContractFormModel orderForm, int numberOfWorkers, Model model) {
+    public void pasteOrderForm(ContractFormModel orderForm, Model model) {
         model.addAttribute("carNumber_paste", orderForm.getCarNumber());
         model.addAttribute("model_paste", orderForm.getModel());
         model.addAttribute("yearOfManufacture_paste", orderForm.getYearOfManufacture());
@@ -66,21 +67,21 @@ public class ContractService {
         model.addAttribute("price_paste", orderForm.getPrice());
     }
 
-//    public boolean validateOrderForm(Contract orderForm, List<Employee> workersBuf, int numberOfWorkers, Car car, BindingResult bindingResult, Model model) {
-//        orderValidator.customValidate(orderForm, numberOfWorkers, workersBuf, car, bindingResult);
-//        if (bindingResult.hasErrors()) {
-//            for (Object object : bindingResult.getAllErrors()) {
-//                if (object instanceof FieldError) {
-//                    FieldError fieldError = (FieldError)object;
-//                    model.addAttribute(fieldError.getField(), fieldError.getCode());
-//                }
-//            }
-//
-//            return true;
-//        }
-//        else
-//            return false;
-//    }
+    public boolean validateOrderForm(ContractFormModel orderForm, BindingResult bindingResult, Model model) {
+        contractFormModelValidator.validate(orderForm, bindingResult);
+        if (bindingResult.hasErrors()) {
+            for (Object object : bindingResult.getAllErrors()) {
+                if (object instanceof FieldError) {
+                    FieldError fieldError = (FieldError)object;
+                    model.addAttribute(fieldError.getField(), fieldError.getCode());
+                }
+            }
+
+            return true;
+        }
+        else
+            return false;
+    }
 
 //    public List<Contract> searchOrdersByUsername(String username) {
 //        return contractRepository.findAllByCustomer(username);
