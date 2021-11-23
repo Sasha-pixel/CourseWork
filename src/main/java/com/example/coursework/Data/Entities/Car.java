@@ -26,7 +26,7 @@ public class Car {
     @Column(name = "vin")
     private String vehicleIdentificationNumber;
 
-    @OneToMany(mappedBy = "truck",
+    @OneToMany(mappedBy = "car",
             cascade = {CascadeType.DETACH,
                     CascadeType.MERGE,
                     CascadeType.PERSIST,
@@ -40,6 +40,15 @@ public class Car {
     private User owner;
 
     public Car() {
+    }
+
+    public Car(String carNumber, String model, int yearOfManufacture, int power, String vehicleIdentificationNumber, User owner) {
+        this.carNumber = carNumber;
+        this.model = model;
+        this.yearOfManufacture = yearOfManufacture;
+        this.power = power;
+        this.vehicleIdentificationNumber = vehicleIdentificationNumber;
+        this.owner = owner;
     }
 
     public Car(String carNumber, String model, int yearOfManufacture, int power, String vehicleIdentificationNumber, List<Contract> contracts, Osago osago, User owner) {

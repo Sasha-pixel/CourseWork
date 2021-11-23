@@ -1,9 +1,6 @@
 package com.example.coursework.Services;
 
-import com.example.coursework.Data.Entities.Car;
-import com.example.coursework.Data.Entities.Contract;
-import com.example.coursework.Data.Entities.Employee;
-import com.example.coursework.Data.Entities.User;
+import com.example.coursework.Data.Entities.*;
 import com.example.coursework.Data.Repositories.ContractRepository;
 import com.example.coursework.Mail.MailSender;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,13 +27,12 @@ public class ContractService {
     private MailSender mailSender;
 
     public void save(Contract contract) {
-        User user = authorizationService.findByUsername(contract.getCustomerUsername());
-        String message = "Здравствуйте, " + contract.getCustomerUsername() + ". Вами был оформлен заказ." + '\n' +
-                "Информация о заказе: " + '\n' +
-                "Пункт отправки: " + contract.getAddressFrom() + '\n' +
-                "Пункт назначения: " + contract.getAddressTo() + '\n' +
-                "Дата оформления заказа: " + contract.getCreationDate() + '\n' +
-                "Дата выполнения заказа: " + contract.getTargetDate() + '\n' +
+        User user = authorizationService.findByUsername(contract.getCustomer().getUsername());
+        String message = "Здравствуйте, " + contract.getCustomer().getUsername() + ". Вами была оформлена заявка на получение страховки ОСАГО." + '\n' +
+                "Информация о заявке: " + '\n' +
+                "Номер автомобиля: " + contract.getCar().getCarNumber() + '\n' +
+                "Модель автомобиля: " + contract.getCar().getModel() + '\n' +
+                "Дата оформления заявки: " + contract.getCreationDate() + '\n' +
                 "Примерная стоимость: " + contract.getPrice() + " руб." + '\n' + '\n' +
                 "Спасибо, что выбрали нас!";
         mailSender.send(user.getEmail(), "Новый заказ", message);
@@ -47,8 +43,8 @@ public class ContractService {
         return contractRepository.findAll();
     }
 
-    public List<Contract> findAllByCustomer(Long id) {
-        return contractRepository.findAllByCustomer(id);
+    public List<Contract> findAllByCustomer(User user) {
+        return contractRepository.findAllByCustomer(user);
     }
 
     public void delete(Long id) {
@@ -56,39 +52,37 @@ public class ContractService {
     }
 
     public List<Contract> findAllOrderByCustomer() {
-        return contractRepository.findAllOrderByCustomer();
+        return contractRepository.findAllByOrderByCustomer();
     }
 
-    public void pasteOrderForm(Contract orderForm, int numberOfWorkers, Model model) {
-        model.addAttribute("addressFrom_paste", orderForm.getAddressFrom());
-        model.addAttribute("addressTo_paste", orderForm.getAddressTo());
-        model.addAttribute("distance_paste", orderForm.getDistance());
-        model.addAttribute("duration_paste", orderForm.getDuration());
-        model.addAttribute("targetDate_paste", orderForm.getTargetDate());
-        model.addAttribute("hours_paste", orderForm.getTargetTime().split(":")[0]);
-        model.addAttribute("minutes_paste", orderForm.getTargetTime().split(":")[1]);
-        model.addAttribute("targetTime_paste", orderForm.getTargetTime());
-        model.addAttribute("numberOfWorkers_paste", numberOfWorkers);
+    public void pasteOrderForm(ContractFormModel orderForm, int numberOfWorkers, Model model) {
+        model.addAttribute("carNumber_paste", orderForm.getCarNumber());
+        model.addAttribute("model_paste", orderForm.getModel());
+        model.addAttribute("yearOfManufacture_paste", orderForm.getYearOfManufacture());
+        model.addAttribute("power_paste", orderForm.getPower());
+        model.addAttribute("vehicleIdentificationNumber_paste", orderForm.getVehicleIdentificationNumber());
+        model.addAttribute("licenseNumber_paste", orderForm.getLicenseNumber());
+        model.addAttribute("drivingExperience_paste", orderForm.getDrivingExperience());
         model.addAttribute("price_paste", orderForm.getPrice());
     }
 
-    public boolean validateOrderForm(Contract orderForm, List<Employee> workersBuf, int numberOfWorkers, Car car, BindingResult bindingResult, Model model) {
-        orderValidator.customValidate(orderForm, numberOfWorkers, workersBuf, car, bindingResult);
-        if (bindingResult.hasErrors()) {
-            for (Object object : bindingResult.getAllErrors()) {
-                if (object instanceof FieldError) {
-                    FieldError fieldError = (FieldError)object;
-                    model.addAttribute(fieldError.getField(), fieldError.getCode());
-                }
-            }
+//    public boolean validateOrderForm(Contract orderForm, List<Employee> workersBuf, int numberOfWorkers, Car car, BindingResult bindingResult, Model model) {
+//        orderValidator.customValidate(orderForm, numberOfWorkers, workersBuf, car, bindingResult);
+//        if (bindingResult.hasErrors()) {
+//            for (Object object : bindingResult.getAllErrors()) {
+//                if (object instanceof FieldError) {
+//                    FieldError fieldError = (FieldError)object;
+//                    model.addAttribute(fieldError.getField(), fieldError.getCode());
+//                }
+//            }
+//
+//            return true;
+//        }
+//        else
+//            return false;
+//    }
 
-            return true;
-        }
-        else
-            return false;
-    }
-
-    public List<Contract> searchOrdersByUsername(String username) {
-        return contractRepository.findAllByCustomerUsernameContainingIgnoreCase(username);
-    }
+//    public List<Contract> searchOrdersByUsername(String username) {
+//        return contractRepository.findAllByCustomer(username);
+//    }
 }

@@ -75,8 +75,8 @@ public class AuthorizationService {
             if (user.getActivationCode() != null)
                 model.addAttribute("notActivated", "Вы не активировали учётную запись," +
                         " в связи с этим, некоторые функции личного кабинета недоступны");
-            List<Contract> userOrders = contractService.findAllByCustomer(user.getId());
-            model.addAttribute("orders", null);
+            List<Contract> contracts = contractService.findAllByCustomer(user);
+            model.addAttribute("orders", contracts);
             model.addAttribute("user", user);
             return "mainUser";
         }

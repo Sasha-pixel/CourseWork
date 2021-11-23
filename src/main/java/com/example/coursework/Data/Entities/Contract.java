@@ -24,7 +24,6 @@ public class Contract {
     @CreatedDate
     private Date creationDate;
 
-    @Column(name = "employee")
     @ManyToOne
     @JoinColumn(name = "employee_id")
     private Employee employee;
@@ -37,17 +36,29 @@ public class Contract {
     @JoinColumn(name = "driver_id")
     private Driver driver;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "car_id")
     private Car car;
 
     @Column(name = "price")
     private int price;
 
+    @Column(name = "approved")
+    private boolean approved;
+
     public Contract() {
     }
 
-    public Contract(User customer, Date endDate, Date creationDate, Employee employee, Osago osago, Driver driver, Car car, int price) {
+    public Contract(User customer, Employee employee, Driver driver, Car car, int price, boolean approved) {
+        this.customer = customer;
+        this.employee = employee;
+        this.driver = driver;
+        this.car = car;
+        this.price = price;
+        this.approved = approved;
+    }
+
+    public Contract(User customer, Date endDate, Date creationDate, Employee employee, Osago osago, Driver driver, Car car, int price, boolean approved) {
         this.customer = customer;
         this.endDate = endDate;
         this.creationDate = creationDate;
@@ -56,6 +67,7 @@ public class Contract {
         this.driver = driver;
         this.car = car;
         this.price = price;
+        this.approved = approved;
     }
 
     public Long getId() {
@@ -128,5 +140,13 @@ public class Contract {
 
     public void setPrice(int price) {
         this.price = price;
+    }
+
+    public boolean isApproved() {
+        return approved;
+    }
+
+    public void setApproved(boolean approved) {
+        this.approved = approved;
     }
 }

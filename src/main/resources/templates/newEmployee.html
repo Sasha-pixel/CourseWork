@@ -1,9 +1,8 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
-      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8">
-  <title>main page</title>
+  <title>new Employee or Car</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Roboto&family=Suez+One&display=swap');
     * {
@@ -86,33 +85,40 @@
     .show {display: block;}
 
     .content {
-      width: 96%;
       margin-top: 10px;
+      width: 96%;
       margin-left:2%;
+      display: flex;
+      flex-direction: raw;
+      justify-content: space-around;
+      align-items: space;
     }
-    input {
+    input, select {
       font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
       padding: 5px;
-      margin: 10px 0px;
+      margin: 0px 0px 20px 0px;
       border: 2px solid #1c1427;
+      background-color: white;
+      border-radius: 15px;
+      text-align: center;
+    }
+    .car-form {
+      width: 30%;
+      height: 300px;
+      margin-top: 20px;
+      text-align: center;
       background-color: #7eca9c;
-    <!--            border-radius: 15px;-->
+      border: 3px solid #1c1427;
+      border-radius: 20px;
     }
-    table {
-      text-align: left;
-      border-collapse: separate;
-      border-spacing: 5px;
-      background: #40394a;
-      color: #1c1427;
-    }
-    th {
-      font-size: 18px;
-      padding: 10px;
-      color: white;
-    }
-    td {
-      background: #7eca9c;
-      padding: 10px;
+    .employee-form {
+      width: 30%;
+      height: 300px;
+      margin-top: 20px;
+      text-align: center;
+      background-color: #7eca9c;
+      border: 3px solid #1c1427;
+      border-radius: 20px;
     }
   </style>
   <script>
@@ -124,7 +130,7 @@
 <body>
 <header>
   <div id="logo">
-    <span>Insurance-Online</span>
+    <span>Donald Truck</span>
   </div>
   <div id="menu">
     <a href="/">Главная страница</a>
@@ -138,7 +144,6 @@
           <div id="navbar">
             <span onclick="myFunction()" class="dropbtn" th:text="${user.username}"/>
             <ul id="myDropdown" class="dropdown-content">
-              <li><a href="/changePassword">Сменить пароль</a></li>
               <li><a href="/logout">Выйти</a></li>
             </ul>
           </div>
@@ -148,53 +153,15 @@
   </div>
 </header>
 <div class="content">
-  <h1 th:inline="text">Здравствуйте, [[${#httpServletRequest.remoteUser}]]!</h1>
-  <span th:text = "${notActivated}" />
-  <div th:switch="${user.activationCode}">
-    <div th:case="null">
-      <form action="/makeOrder" method="get">
-        <input type="submit" value="оформить заказ"/>
-      </form>
-    </div>
-    <div th:case="*">
-      <form action="/makeOrder" method="get">
-        <input type="submit" disabled value="оформить заказ"/>
-      </form>
-    </div>
-  </div>
-  <div th:switch="${user.activationCode}">
-    <div th:case="null">
-      <div th:switch="${orders.size()}">
-        <div  th:case="0">
-          <h3>У вас пока нет заказов.</h3>
-        </div>
-        <div th:case="*">
-          <h3>Заказы:</h3>
-          <table>
-            <thead>
-            <tr>
-              <th>Номер заявки</th>
-              <th>Одобрено</th>
-              <th>Номер автомобиля</th>
-              <th>Стоимость</th>
-              <th>Назначенный специалист</th>
-              <th>Отменить заявку</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr th:each="order : ${orders}">
-              <td th:text="${order.id}"></td>
-              <td th:text="${order.approved}"></td>
-              <td th:text="${order.car.carNumber}"></td>
-              <td th:text="${order.price}"></td>
-              <td th:text="${order.employee.name}"></td>
-              <td><a th:href="@{deleteOrder/{id}(id=${order.id})}" >отменить заказ</a></td>
-            </tr>
-            </tbody>
-          </table>
-        </div>
+  <div class="employee-form">
+    <h1>Добавить сотрудника</h1>
+    <form action="/admin/addEmployee" method="post">
+      <div>
+        <span style="color:red" th:text = "${name}" />
       </div>
-    </div>
+      <div><label><input type="text" name="name" id="name" th:value="${name_paste}" placeholder="Имя и фамилия"/> </label></div>
+      <div><input type="submit" value="принять"/></div>
+    </form>
   </div>
 </div>
 </body>

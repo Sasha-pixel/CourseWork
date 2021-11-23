@@ -1,7 +1,12 @@
 package com.example.coursework.Controllers;
 
+import com.example.coursework.Data.Entities.Role;
 import com.example.coursework.Data.Entities.User;
+import com.example.coursework.Services.AuthorizationService;
+import com.example.coursework.Services.ContractService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -16,7 +21,7 @@ public class MainController {
     private AuthorizationService authorizationService;
 
     @Autowired
-    private OrderService orderService;
+    private ContractService contractService;
 
     /**
      * Возврат домашней страницы

@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <meta charset="UTF-8">
+    <title>OrderPage</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto&family=Suez+One&display=swap');
+        * {
+            margin: 0;
+            padding: 0;
+            outline: none;
+        }
+        body {
+            background-color: #ccffbd;
+            font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+        }
+        header {
+            width: 100%;
+            background: #1c1427;
+        }
+        #logo {
+            color: white;
+            font-family: 'Suez One', serif;
+            font-size: 35px;
+            float: left;
+            margin-left: 10px;
+        }
+        header #menu {
+            text-align: center;
+            font-size: 15px;
+        }
+        header #menu a {
+            color: white;
+            text-decoration: none;
+            padding: 4px 30px;
+            line-height: 50px;
+        }
+        header #menu a:hover {
+            color: #40394a;
+            background: #7eca9c;
+        }
+        header #menu span {
+            color: white;
+            text-decoration: none;
+            padding: 4px;
+            line-height: 50px;
+        }
+        header #enter {
+            float: right;
+        }
+        .dropbtn {
+            margin-right: 15px;
+        <!--            background-color: black;-->
+            /*border-radius: 10px;*/
+            /*float: right;*/
+            color: white;
+            padding: 5px;
+            border: none;
+            cursor: pointer;
+        }
+        #navbar span:hover {
+            color: #40394a;
+            background: #7eca9c;
+        }
+        .dropdown-content {
+            margin-right: 15px;
+            display: none;
+            position: absolute;
+            background-color: #40394a;
+            min-width: 200px;
+            overflow: auto;
+            right: 0;
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: #40394a;
+            margin: 4px;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            transition: 0.5s;
+        }
+
+        .show {display: block;}
+
+        .content {
+            width: 96%;
+            margin-top: 10px;
+            margin-left:2%;
+        }
+        input, select {
+            font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+            padding: 5px;
+            margin: 7.5px 0px;
+            border: 2px solid black;
+            background-color: white;
+            border-radius: 15px;
+        }
+        .order-form {
+            height: 450px;
+            width: 100%;
+        }
+        #map {
+            height: 100%;
+            width: 40%;
+            float: left;
+            border: solid 4px #1c1427;
+            border-radius: 20px;
+        }
+        form {
+            float: left;
+            width: 55%;
+            padding: 5px 5px 0px 5px;
+            background-color: #7eca9c;
+            color: black;
+            border: 4px solid #1c1427;
+            border-radius: 20px;
+            margin: 0px 24px 0px 10px;
+            height: 100%;
+        }
+        h1 {
+            margin-left: 10px;
+        }
+    </style>
+    <script>
+        function myFunction() {
+            document.getElementById("myDropdown").classList.toggle("show");
+        }
+    </script>
+    <script>
+        function getTodaysDate(){
+            date = new Date();
+            year = date.getFullYear();
+            yearOld = date.getFullYear() - 10;
+            document.getElementById('yearOfManufacture').setAttribute('min', yearOld);
+            document.getElementById('yearOfManufacture').setAttribute('max', year);
+        }
+    </script>
+    <script>
+        function countInsuranse() {
+            const yearOfManufacture = Number(document.getElementById('yearOfManufacture').value);
+            const power = Number(document.getElementById('power').value);
+            const drivingExperience = Number(document.getElementById('drivingExperience').value);
+            date = new Date();
+            year = date.getFullYear();
+            osago = (year - yearOfManufacture) * 5000 + power * 40 + drivingExperience * 100 + 10000;
+            document.getElementById('price').setAttribute('value', osago);
+            document.getElementById('OK').disabled = false;
+        }
+    </script>
+</head>
+<body>
+<header>
+    <div id="logo">
+        <span>Insurance-Online</span>
+    </div>
+    <div id="menu">
+        <a href="/">Главная страница</a>
+        <a href="/main">Личный кабинет</a>
+        <div id="enter">
+            <div th:switch="${user}">
+                <div th:case="null">
+                    <a href="/login">Войти</a>/<a href="/registration">Регистрация</a>
+                </div>
+                <div th:case="*">
+                    <div id="navbar">
+                        <span onclick="myFunction()" class="dropbtn" th:text="${user.username}"/>
+                        <ul id="myDropdown" class="dropdown-content">
+                            <li><a href="/logout">Выйти</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<div class="content">
+    <h1>Готовы принять ваш заказ!</h1>
+    <div class="order-form">
+        <form action="/makeOrderAction" method="post">
+            <div><label> Автомобильный номер<a style="color:red">*</a> : <input type="text" name="carNumber" id="carNumber" th:value="${carNumber_paste}"/> </label> <span style="color:red" th:text = "${carNumber}" /></div>
+            <div><label> Модель автомобиля<a style="color:red">*</a> : <input type="text" name="model" id="model" th:value="${model_paste}"/> </label> <span style="color:red" th:text = "${model}" /></div>
+            <div><label> Год выпуска<a style="color:red">*</a> : <input type="number" name="yearOfManufacture" id="yearOfManufacture" oninput="getTodaysDate()" th:value="${yearOfManufacture_paste}"/> </label> <span style="color:red" th:text = "${yearOfManufacture}" /></div>
+            <div><label> Мощность(в л.с.)<a style="color:red">*</a> : <input type="number" min="100" max="400" name="power" id="power" th:value="${power_paste}"/> </label> <span style="color:red" th:text = "${power}" /></div>
+            <div><label> VIN<a style="color:red">*</a> : <input type="text" name="vehicleIdentificationNumber" id="vehicleIdentificationNumber" th:value="${vehicleIdentificationNumber_paste}"/> </label> <span style="color:red" th:text = "${vehicleIdentificationNumber}" /></div>
+            <div><label> Водительское удостоверение<a style="color:red">*</a> : <input type="text" name="licenseNumber" id="licenseNumber" th:value="${licenseNumber_paste}"/> </label> <span style="color:red" th:text = "${licenseNumber}" /></div>
+            <div><label> Водительский стаж<a style="color:red">*</a> : <input type="number" min="0" max="70" id="drivingExperience" name="drivingExperience" th:value="${drivingExperience_paste}"/> </label> <span style="color:red" th:text = "${drivingExperience}" /></div>
+            <div><input type="button" value="рассчитать стоимость" onclick="countInsuranse()" /></div>
+            <div><label> Стоимость оформления ОСАГО: <input type="text" id="price" name="price" th:value="${price_paste}" readonly/> </label>
+                <div><input type="submit" id="OK" value="принять" disabled/></div>
+        </form>
+        <div id="map"></div>
+    </div>
+</div>
+</body>
+</html>

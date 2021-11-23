@@ -14,26 +14,22 @@ public class Employee {
     @Column(name = "name")
     private String name;
 
-    private String position;
-
     @OneToMany(cascade = {CascadeType.DETACH,
             CascadeType.MERGE,
             CascadeType.PERSIST,
             CascadeType.REFRESH},
-            mappedBy = "workers")
+            mappedBy = "employee")
     private List<Contract> contracts;
 
     public Employee() {
     }
 
-    public Employee(String name, String position) {
+    public Employee(String name) {
         this.name = name;
-        this.position = position;
     }
 
-    public Employee(String name, String position, List<Contract> contracts) {
+    public Employee(String name, List<Contract> contracts) {
         this.name = name;
-        this.position = position;
         this.contracts = contracts;
     }
 
@@ -51,14 +47,6 @@ public class Employee {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public String getPosition() {
-        return position;
-    }
-
-    public void setPosition(String position) {
-        this.position = position;
     }
 
     public List<Contract> getContracts() {

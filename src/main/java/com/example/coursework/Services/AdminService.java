@@ -94,7 +94,7 @@ public class AdminService {
         else {
             model.addAttribute("name_paste", employee.getName());
             model.addAttribute("user", user);
-            return "newEmployeeOrCar";
+            return "newEmployee";
         }
     }
 }

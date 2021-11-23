@@ -24,14 +24,19 @@ public class Osago {
     @JoinColumn(name = "car_id")
     private Car car;
 
+    @OneToOne
+    @JoinColumn(name = "contract_id")
+    private Contract contract;
+
     public Osago() {
     }
 
-    public Osago(String number, Date startDate, Date endDate, Car car) {
+    public Osago(String number, Date startDate, Date endDate, Car car, Contract contract) {
         this.number = number;
         this.startDate = startDate;
         this.endDate = endDate;
         this.car = car;
+        this.contract = contract;
     }
 
     public Long getId() {
@@ -72,5 +77,13 @@ public class Osago {
 
     public void setCar(Car car) {
         this.car = car;
+    }
+
+    public Contract getContract() {
+        return contract;
+    }
+
+    public void setContract(Contract contract) {
+        this.contract = contract;
     }
 }

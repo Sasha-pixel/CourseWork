@@ -2,6 +2,7 @@ package com.example.coursework.Services;
 
 import com.example.coursework.Data.Entities.Contract;
 import com.example.coursework.Data.Entities.Employee;
+import com.example.coursework.Data.Repositories.ContractRepository;
 import com.example.coursework.Data.Repositories.EmployeeRepository;
 import com.example.coursework.Validators.EmployeeValidator;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +22,9 @@ public class EmployeeService {
 
     @Autowired
     private EmployeeValidator employeeValidator;
+
+    @Autowired
+    private ContractRepository contractRepository;
 
     public List<Employee> findAll() {
         return employeeRepository.findAll();
@@ -47,23 +51,17 @@ public class EmployeeService {
         return orders;
     }
 
-    public List<Employee> setWorkersToOrder(Contract orderForm, List<Employee> workers) {
-        List<Employee> workersBuf = new ArrayList<>();
-        boolean flag;
+    public Employee setWorkersToOrder(List<Employee> workers) {
+        Employee employee = employeeRepository.findEmployeeById(1L);
         for (Employee worker : workers) {
-            flag = true;
             if (worker.getContracts().isEmpty())
-                workersBuf.add(worker);
+                return worker;
             else {
-                for (Contract contract : worker.getContracts()) {
-                    if (contract.getTargetDate().equals(orderForm.getTargetDate()))
-                        flag = false;
-                }
-                if (flag)
-                    workersBuf.add(worker);
+                if (employee.getContracts().size() > worker.getContracts().size())
+                    employee = worker;
             }
         }
-        return workersBuf;
+        return employee;
     }
 
     public boolean validateEmployee(Employee employee, BindingResult bindingResult, Model model) {

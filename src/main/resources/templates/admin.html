@@ -140,7 +140,7 @@
 <body>
 <header>
     <div id="logo">
-        <span>Donald Truck</span>
+        <span>Insurance-Online</span>
     </div>
     <div id="menu">
         <a href="/">Главная страница</a>
@@ -168,12 +168,12 @@
     <div th:switch="${user.activationCode}">
         <div th:case="null">
             <form action="/admin/addNewEmployeeOrCar" method="get">
-                <input type="submit" value="добавить сотрудника или автомобиль"/>
+                <input type="submit" value="добавить сотрудника"/>
             </form>
         </div>
         <div th:case="*">
             <form action="/admin/addNewEmployeeOrCar" method="get">
-                <input type="submit" disabled value="добавить сотрудника или автомобиль"/>
+                <input type="submit" disabled value="добавить сотрудника"/>
             </form>
         </div>
     </div>
@@ -216,27 +216,21 @@
                                     <thead>
                                     <tr>
                                         <th>Заказчик</th>
-                                        <th>Номер заказа</th>
-                                        <th>Адрес пункта отправки</th>
-                                        <th>Адрес пункта назначения</th>
-                                        <th>Дата выполнения заказа</th>
-                                        <th>Дата оформления заказа</th>
-                                        <th>Работники, назначенные на заказ</th>
-                                        <th>Номер автомобиля, назначенного на заказ</th>
-                                        <th>Примерная цена</th>
+                                        <th>Номер заявки</th>
+                                        <th>Одобрено</th>
+                                        <th>Номер автомобиля</th>
+                                        <th>Стоимость</th>
+                                        <th>Назначенный специалист</th>
                                     </tr>
                                     </thead>
                                     <tbody>
                                     <tr th:each="order : ${allUsersOrders}">
-                                        <td th:text="${order.customerUsername}"></td>
+                                        <td th:text="${order.customer.username}"></td>
                                         <td th:text="${order.id}"></td>
-                                        <td th:text="${order.addressFrom}"></td>
-                                        <td th:text="${order.addressTo}"></td>
-                                        <td th:text="${order.targetDate}+' '+${order.targetTime}"></td>
-                                        <td th:text="${order.creationDate}"></td>
-                                        <td th:text="${order.workers}"></td>
-                                        <td th:text="${order.truck.carNumber}"></td>
-                                        <td th:text="${order.price}+'₽'"></td>
+                                        <td th:text="${order.approved}"></td>
+                                        <td th:text="${order.car.carNumber}"></td>
+                                        <td th:text="${order.price}"></td>
+                                        <td th:text="${order.employee.name}"></td>
                                     </tr>
                                     </tbody>
                                 </table>
@@ -268,7 +262,7 @@
                                     <tr th:each="employee : ${allEmployees}">
                                         <td th:text="${employee.id}"></td>
                                         <td th:text="${employee.name}"></td>
-                                        <td th:text="${employee.orders.size()}"></td>
+                                        <td th:text="${employee.contracts.size()}"></td>
                                     </tr>
                                     </tbody>
                                 </table>
@@ -294,27 +288,21 @@
                                     <thead>
                                     <tr>
                                         <th>Заказчик</th>
-                                        <th>Номер заказа</th>
-                                        <th>Адрес пункта отправки</th>
-                                        <th>Адрес пункта назначения</th>
-                                        <th>Дата выполнения заказа</th>
-                                        <th>Дата оформления заказа</th>
-                                        <th>Работники, назначенные на заказ</th>
-                                        <th>Номер автомобиля, назначенного на заказ</th>
-                                        <th>Примерная цена</th>
+                                        <th>Номер заявки</th>
+                                        <th>Одобрено</th>
+                                        <th>Номер автомобиля</th>
+                                        <th>Стоимость</th>
+                                        <th>Назначенный специалист</th>
                                     </tr>
                                     </thead>
                                     <tbody>
                                     <tr th:each="order : ${allUsersOrders}">
-                                        <td th:text="${order.customerUsername}"></td>
+                                        <td th:text="${order.customer.username}"></td>
                                         <td th:text="${order.id}"></td>
-                                        <td th:text="${order.addressFrom}"></td>
-                                        <td th:text="${order.addressTo}"></td>
-                                        <td th:text="${order.targetDate}+' '+${order.targetTime}"></td>
-                                        <td th:text="${order.creationDate}"></td>
-                                        <td th:text="${order.workers}"></td>
-                                        <td th:text="${order.truck.carNumber}"></td>
+                                        <td th:text="${order.approved}"></td>
+                                        <td th:text="${order.car.carNumber}"></td>
                                         <td th:text="${order.price}"></td>
+                                        <td th:text="${order.employee.name}"></td>
                                     </tr>
                                     </tbody>
                                 </table>
@@ -346,7 +334,7 @@
                                     <tr th:each="employee : ${allEmployees}">
                                         <td th:text="${employee.id}"></td>
                                         <td th:text="${employee.name}"></td>
-                                        <td th:text="${employee.orders.size()}"></td>
+                                        <td th:text="${employee.contracts.size()}"></td>
                                     </tr>
                                     </tbody>
                                 </table>
