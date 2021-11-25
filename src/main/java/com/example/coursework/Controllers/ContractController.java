@@ -3,6 +3,7 @@ package com.example.coursework.Controllers;
 import com.example.coursework.Data.Entities.*;
 import com.example.coursework.Data.Repositories.CarRepository;
 import com.example.coursework.Data.Repositories.DriverRepository;
+import com.example.coursework.Services.AuthorizationService;
 import com.example.coursework.Services.ContractService;
 import com.example.coursework.Services.EmployeeService;
 import com.example.coursework.Validators.CarService;
@@ -32,6 +33,9 @@ public class ContractController {
     @Autowired
     private CarService carService;
 
+    @Autowired
+    private AuthorizationService authorizationService;
+
 
     @GetMapping("/makeOrder")
     public String makeOrder(@AuthenticationPrincipal User user, Model model) {
@@ -59,6 +63,7 @@ public class ContractController {
         if (car == null)
             car = new Car(orderForm.getCarNumber(), orderForm.getModel(), orderForm.getYearOfManufacture(), orderForm.getPower(), orderForm.getVehicleIdentificationNumber(), user);
         Contract contract = new Contract(user, employee, driver, car, orderForm.getPrice(), false);
+        authorizationService.updateUserCarAndDriver(user, car, driver);
         driverService.saveDriver(driver);
         carService.saveCar(car);
         contractService.save(contract);

@@ -1,8 +1,6 @@
 package com.example.coursework.Services;
 
-import com.example.coursework.Data.Entities.Contract;
-import com.example.coursework.Data.Entities.Role;
-import com.example.coursework.Data.Entities.User;
+import com.example.coursework.Data.Entities.*;
 import com.example.coursework.Data.Repositories.UserRepository;
 import com.example.coursework.Mail.MailSender;
 import com.example.coursework.Validators.AuthorizationValidator;
@@ -47,6 +45,12 @@ public class AuthorizationService {
         return bCryptPasswordEncoder.matches(rawPassword, oldPassword);
     }
 
+    public void updateUserCarAndDriver(User user, Car car, Driver driver) {
+        user.setCar(car);
+        user.setDriver(driver);
+        userRepository.save(user);
+    }
+
     public String checkAuthority(String error, User user, Model model, HttpServletRequest request) {
         model.addAttribute("user", user);
         if (user != null)
@@ -76,6 +80,7 @@ public class AuthorizationService {
                 model.addAttribute("notActivated", "Вы не активировали учётную запись," +
                         " в связи с этим, некоторые функции личного кабинета недоступны");
             List<Contract> contracts = contractService.findAllByCustomer(user);
+            model.addAttribute("car", user.getCar());
             model.addAttribute("orders", contracts);
             model.addAttribute("user", user);
             return "mainUser";

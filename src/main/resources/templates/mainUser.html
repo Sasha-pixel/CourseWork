@@ -164,6 +164,46 @@
   </div>
   <div th:switch="${user.activationCode}">
     <div th:case="null">
+      <div th:switch="${car}">
+        <div th:case="null">
+          <h3>У вас пока не добавлен автомобиль</h3>
+        </div>
+        <div th:case="*">
+          <h3>Ваш автомобиль</h3>
+          <table>
+            <thead>
+            <tr>
+              <th>Номер</th>
+              <th>Модель</th>
+              <div th:switch="${car.osago}">
+                <div th:case="null">
+                  <th>Действует ОСАГО</th>
+                </div>
+              </div>
+              <div th:case="*">
+                <th>Номер ОСАГО</th>
+                <th>Дата окончания действия ОСАГО</th>
+              </div>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td th:text="${car.carNumber}"></td>
+              <td th:text="${car.model}"></td>
+              <div th:switch="${car.osago}">
+                <div th:case="null">
+                  <td>нет</td>
+                </div>
+                <div th:case="*">
+                  <td th:text="${car.osago.number}"></td>
+                  <td th:text="${car.osago.endDate}"></td>
+                </div>
+              </div>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
       <div th:switch="${orders.size()}">
         <div  th:case="0">
           <h3>У вас пока нет заказов.</h3>

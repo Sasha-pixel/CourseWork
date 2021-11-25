@@ -221,6 +221,7 @@
                                         <th>Номер автомобиля</th>
                                         <th>Стоимость</th>
                                         <th>Назначенный специалист</th>
+                                        <th>Одобрить заявку</th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -231,6 +232,7 @@
                                         <td th:text="${order.car.carNumber}"></td>
                                         <td th:text="${order.price}"></td>
                                         <td th:text="${order.employee.name}"></td>
+                                        <td><a th:href="@{approve/{id}(id=${order.id})}" >одобрить заявку</a></td>
                                     </tr>
                                     </tbody>
                                 </table>
@@ -293,6 +295,7 @@
                                         <th>Номер автомобиля</th>
                                         <th>Стоимость</th>
                                         <th>Назначенный специалист</th>
+                                        <th>Одобрить заявку</th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -303,6 +306,7 @@
                                         <td th:text="${order.car.carNumber}"></td>
                                         <td th:text="${order.price}"></td>
                                         <td th:text="${order.employee.name}"></td>
+                                        <td><a th:href="@{approve/{id}(id=${order.id})}" >одобрить заявку</a></td>
                                     </tr>
                                     </tbody>
                                 </table>

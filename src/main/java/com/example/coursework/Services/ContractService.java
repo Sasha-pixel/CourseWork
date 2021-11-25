@@ -27,6 +27,10 @@ public class ContractService {
     @Autowired
     private MailSender mailSender;
 
+    public Contract findById(Long id) {
+        return contractRepository.findContractById(id);
+    }
+
     public void save(Contract contract) {
         User user = authorizationService.findByUsername(contract.getCustomer().getUsername());
         String message = "Здравствуйте, " + contract.getCustomer().getUsername() + ". Вами была оформлена заявка на получение страховки ОСАГО." + '\n' +
@@ -83,7 +87,11 @@ public class ContractService {
             return false;
     }
 
-//    public List<Contract> searchOrdersByUsername(String username) {
-//        return contractRepository.findAllByCustomer(username);
-//    }
+    public void approveContract(Contract contract) {
+        contract.setApproved(true);
+        String message = "Здравствуйте, " + contract.getCustomer().getUsername() + ". Вами была оформлена заявка на получение страховки ОСАГО." + '\n' +
+                "Она одобрена, через 2 рабочих дня можете забрать полис ОСАГО в нашем офисе по адресу г.Москва, ул.Проспект Вернадского, д.78";
+        mailSender.send(contract.getCustomer().getEmail(), "Новый заказ", message);
+        contractRepository.save(contract);
+    }
 }

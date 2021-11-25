@@ -3,6 +3,7 @@ package com.example.coursework.Controllers;
 import com.example.coursework.Data.Entities.Employee;
 import com.example.coursework.Data.Entities.User;
 import com.example.coursework.Services.AdminService;
+import com.example.coursework.Services.OsagoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
@@ -13,6 +14,9 @@ import org.springframework.web.bind.annotation.*;
 @Controller
 @RequestMapping("/admin")
 public class AdminController {
+
+    @Autowired
+    private OsagoService osagoService;
 
     @Autowired
     private AdminService adminService;
@@ -47,5 +51,11 @@ public class AdminController {
                                  BindingResult bindingResult,
                                  Model model) {
         return adminService.addingEmployee(employee, user, bindingResult, model);
+    }
+
+    @GetMapping("/approve/{id}")
+    public String approveContract(@PathVariable Long id) {
+        osagoService.approveContract(id);
+        return "redirect:/admin/main";
     }
 }

@@ -2,6 +2,7 @@ package com.example.coursework.Services;
 
 import com.example.coursework.Data.Entities.Contract;
 import com.example.coursework.Data.Entities.Employee;
+import com.example.coursework.Data.Entities.Osago;
 import com.example.coursework.Data.Entities.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -9,7 +10,9 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.util.UUID;
 
 @Service
 public class AdminService {
