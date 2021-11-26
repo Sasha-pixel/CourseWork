@@ -1,6 +1,7 @@
 package com.example.coursework.Services;
 
 import com.example.coursework.Data.Entities.*;
+import com.example.coursework.Data.Repositories.CarRepository;
 import com.example.coursework.Data.Repositories.ContractRepository;
 import com.example.coursework.Mail.MailSender;
 import com.example.coursework.Validators.ContractFormModelValidator;
@@ -26,6 +27,9 @@ public class ContractService {
 
     @Autowired
     private MailSender mailSender;
+
+    @Autowired
+    private CarRepository carRepository;
 
     public Contract findById(Long id) {
         return contractRepository.findContractById(id);
@@ -93,5 +97,25 @@ public class ContractService {
                 "Она одобрена, через 2 рабочих дня можете забрать полис ОСАГО в нашем офисе по адресу г.Москва, ул.Проспект Вернадского, д.78";
         mailSender.send(contract.getCustomer().getEmail(), "Новый заказ", message);
         contractRepository.save(contract);
+    }
+
+    public String createNewOsagoForCar(Long id, Model model) {
+        Car car = carRepository.findCarById(id);
+        ContractFormModel contractFormModel = new ContractFormModel(
+                car.getCarNumber(),
+                car.getModel(),
+                car.getYearOfManufacture(),
+                car.getPower(),
+                car.getVehicleIdentificationNumber(),
+                car.getOwner().getDriver().getLicenseNumber(),
+                car.getOwner().getDriver().getDrivingExperience(),
+                0
+        );
+        pasteOrderForm(contractFormModel, model);
+        return "makeOrder";
+    }
+
+    public List<Contract> findAllByCustomerAndApproved(User customer, Boolean approved) {
+        return contractRepository.findAllByCustomerAndApproved(customer, approved);
     }
 }

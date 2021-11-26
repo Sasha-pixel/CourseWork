@@ -17,4 +17,6 @@ public interface ContractRepository extends JpaRepository<Contract, Long> {
     List<Contract> findAllByCustomer(User user);
 
     List<Contract> findAllByOrderByCustomer();
+
+    List<Contract> findAllByCustomerAndApproved(User customer, Boolean approved);
 }

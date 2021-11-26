@@ -8,4 +8,6 @@ import org.springframework.stereotype.Repository;
 public interface CarRepository extends JpaRepository<Car, Long> {
 
     Car findByCarNumberOrVehicleIdentificationNumber(String carNumber, String vehicleIdentificationNumber);
+
+    Car findCarById(Long id);
 }

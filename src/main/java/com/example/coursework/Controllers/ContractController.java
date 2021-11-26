@@ -75,4 +75,9 @@ public class ContractController {
         contractService.delete(id);
         return "redirect:/main";
     }
+
+    @GetMapping("/createNewOsago/{id}")
+    public String createNewOsagoForCar(@PathVariable Long id, Model model) {
+        return contractService.createNewOsagoForCar(id, model);
+    }
 }

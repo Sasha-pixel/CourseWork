@@ -177,12 +177,19 @@
               <th>Модель</th>
               <div th:switch="${car.osago}">
                 <div th:case="null">
-                  <th>Действует ОСАГО</th>
+                  <th>Оформить новое ОСАГО</th>
                 </div>
-              </div>
-              <div th:case="*">
-                <th>Номер ОСАГО</th>
-                <th>Дата окончания действия ОСАГО</th>
+                <div th:case="*">
+                  <div th:switch="${newOsago}">
+                    <div th:case="true">
+                      <th>Оформить новое ОСАГО</th>
+                    </div>
+                    <div th:case="false">
+                      <th>Номер ОСАГО</th>
+                      <th>Дата окончания действия ОСАГО</th>
+                    </div>
+                  </div>
+                </div>
               </div>
             </tr>
             </thead>
@@ -192,11 +199,18 @@
               <td th:text="${car.model}"></td>
               <div th:switch="${car.osago}">
                 <div th:case="null">
-                  <td>нет</td>
+                  <td><a th:href="@{createNewOsago/{id}(id=${car.id})}" >оформить</a></td>
                 </div>
                 <div th:case="*">
-                  <td th:text="${car.osago.number}"></td>
-                  <td th:text="${car.osago.endDate}"></td>
+                  <div th:switch="${newOsago}">
+                    <div th:case="true">
+                      <td><a th:href="@{createNewOsago/{id}(id=${car.id})}" >оформить</a></td>
+                    </div>
+                    <div th:case="false">
+                      <td th:text="${car.osago.number}"></td>
+                      <td th:text="${car.osago.endDate}"></td>
+                    </div>
+                  </div>
                 </div>
               </div>
             </tr>

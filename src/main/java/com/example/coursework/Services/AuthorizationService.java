@@ -16,6 +16,7 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.Collections;
+import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 
@@ -79,7 +80,14 @@ public class AuthorizationService {
             if (user.getActivationCode() != null)
                 model.addAttribute("notActivated", "Вы не активировали учётную запись," +
                         " в связи с этим, некоторые функции личного кабинета недоступны");
-            List<Contract> contracts = contractService.findAllByCustomer(user);
+            List<Contract> contracts = contractService.findAllByCustomerAndApproved(user, false);
+            Date date = new Date();
+            if (user.getCar().getOsago() == null)
+                model.addAttribute("newOsago", true);
+            else if (user.getCar().getOsago().getEndDate().before(date))
+                model.addAttribute("newOsago", true);
+            else
+                model.addAttribute("newOsago", false);
             model.addAttribute("car", user.getCar());
             model.addAttribute("orders", contracts);
             model.addAttribute("user", user);
