@@ -20,9 +20,6 @@ public class EmployeeValidator implements Validator {
     private Pattern pattern;
     private Matcher matcher;
 
-
-    private static final String NAME_PATTERN = "^[а-яА-Я_]+( [а-яА-Я_]+)*$";
-
     @Override
     public boolean supports(Class<?> aClass) {
         return Employee.class.equals(aClass);
@@ -37,7 +34,7 @@ public class EmployeeValidator implements Validator {
     }
 
     public boolean validateName(String name) {
-        pattern = Pattern.compile(NAME_PATTERN);
+        pattern = Pattern.compile(RegexPatterns.NAME_PATTERN);
         matcher = pattern.matcher(name);
         return matcher.matches();
     }

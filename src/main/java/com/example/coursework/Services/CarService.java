@@ -18,4 +18,8 @@ public class CarService {
     public void saveCar(Car car) {
         carRepository.save(car);
     }
+
+    public Car findCarById(Long id) {
+        return carRepository.findCarById(id);
+    }
 }

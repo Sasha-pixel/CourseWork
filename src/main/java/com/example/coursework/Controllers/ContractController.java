@@ -1,38 +1,23 @@
 package com.example.coursework.Controllers;
 
-import com.example.coursework.Data.Entities.*;
-import com.example.coursework.Services.AuthorizationService;
+import com.example.coursework.Data.Entities.ContractFormModel;
+import com.example.coursework.Data.Entities.User;
 import com.example.coursework.Services.ContractService;
-import com.example.coursework.Services.EmployeeService;
-import com.example.coursework.Services.CarService;
-import com.example.coursework.Services.DriverService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class ContractController {
 
     @Autowired
     private ContractService contractService;
-
-    @Autowired
-    private EmployeeService employeeService;
-
-    @Autowired
-    private DriverService driverService;
-
-    @Autowired
-    private CarService carService;
-
-    @Autowired
-    private AuthorizationService authorizationService;
-
 
     @GetMapping("/makeOrder")
     public String makeOrder(@AuthenticationPrincipal User user, Model model) {
@@ -45,26 +30,7 @@ public class ContractController {
     public String makeOrderAction(@ModelAttribute ContractFormModel orderForm,
                                   @AuthenticationPrincipal User user,
                                   BindingResult bindingResult, Model model) {
-        List<Employee> workers = employeeService.findAll();
-        Employee employee = employeeService.setWorkersToOrder(workers);
-        if (contractService.validateOrderForm(orderForm, bindingResult, model)) {
-            contractService.pasteOrderForm(orderForm, model);
-            model.addAttribute("user", user);
-            model.addAttribute("again", "yes");
-            return "makeOrder";
-        }
-        Driver driver = driverService.findByLicenseNumber(orderForm.getLicenseNumber());
-        if (driver == null)
-        driver = new Driver(orderForm.getLicenseNumber(), orderForm.getDrivingExperience(), user);
-        Car car = carService.findByCarNumberOrVehicleIdentificationNumber(orderForm.getCarNumber(), orderForm.getVehicleIdentificationNumber());
-        if (car == null)
-            car = new Car(orderForm.getCarNumber(), orderForm.getModel(), orderForm.getYearOfManufacture(), orderForm.getPower(), orderForm.getVehicleIdentificationNumber(), user);
-        Contract contract = new Contract(user, employee, driver, car, orderForm.getPrice(), false);
-        authorizationService.updateUserCarAndDriver(user, car, driver);
-        driverService.saveDriver(driver);
-        carService.saveCar(car);
-        contractService.save(contract);
-        return "redirect:/main";
+        return contractService.createOrder(orderForm, user, bindingResult, model);
     }
 
     @GetMapping("/deleteOrder/{id}")

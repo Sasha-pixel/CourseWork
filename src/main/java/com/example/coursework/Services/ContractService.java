@@ -23,13 +23,19 @@ public class ContractService {
     private ContractFormModelValidator contractFormModelValidator;
 
     @Autowired
+    private CarService carService;
+
+    @Autowired
+    private EmployeeService employeeService;
+
+    @Autowired
+    private DriverService driverService;
+
+    @Autowired
     private AuthorizationService authorizationService;
 
     @Autowired
     private MailSender mailSender;
-
-    @Autowired
-    private CarRepository carRepository;
 
     public Contract findById(Long id) {
         return contractRepository.findContractById(id);
@@ -100,7 +106,7 @@ public class ContractService {
     }
 
     public String createNewOsagoForCar(Long id, Model model) {
-        Car car = carRepository.findCarById(id);
+        Car car = carService.findCarById(id);
         ContractFormModel contractFormModel = new ContractFormModel(
                 car.getCarNumber(),
                 car.getModel(),
@@ -117,5 +123,28 @@ public class ContractService {
 
     public List<Contract> findAllByCustomerAndApproved(User customer, Boolean approved) {
         return contractRepository.findAllByCustomerAndApproved(customer, approved);
+    }
+
+    public String createOrder(ContractFormModel orderForm, User user, BindingResult bindingResult, Model model) {
+        List<Employee> workers = employeeService.findAll();
+        Employee employee = employeeService.setWorkersToOrder(workers);
+        if (validateOrderForm(orderForm, bindingResult, model)) {
+            pasteOrderForm(orderForm, model);
+            model.addAttribute("user", user);
+            model.addAttribute("again", "yes");
+            return "makeOrder";
+        }
+        Driver driver = driverService.findByLicenseNumber(orderForm.getLicenseNumber());
+        if (driver == null)
+            driver = new Driver(orderForm.getLicenseNumber(), orderForm.getDrivingExperience(), user);
+        Car car = carService.findByCarNumberOrVehicleIdentificationNumber(orderForm.getCarNumber(), orderForm.getVehicleIdentificationNumber());
+        if (car == null)
+            car = new Car(orderForm.getCarNumber(), orderForm.getModel(), orderForm.getYearOfManufacture(), orderForm.getPower(), orderForm.getVehicleIdentificationNumber(), user);
+        Contract contract = new Contract(user, employee, driver, car, orderForm.getPrice(), false);
+        authorizationService.updateUserCarAndDriver(user, car, driver);
+        driverService.saveDriver(driver);
+        carService.saveCar(car);
+        save(contract);
+        return "redirect:/main";
     }
 }
