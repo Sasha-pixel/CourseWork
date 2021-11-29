@@ -2,7 +2,6 @@ package com.example.coursework.Services;
 
 import com.example.coursework.Data.Entities.Contract;
 import com.example.coursework.Data.Entities.Employee;
-import com.example.coursework.Data.Entities.Osago;
 import com.example.coursework.Data.Entities.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -10,9 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
-import java.util.UUID;
 
 @Service
 public class AdminService {
@@ -76,18 +73,6 @@ public class AdminService {
             return "admin";
         }
     }
-
-//    public String addingCar(Truck truck, User user, BindingResult bindingResult, Model model) {
-//        if (!truckService.validateTruck(truck, bindingResult, model)) {
-//            truckService.save(truck);
-//            return "redirect:/admin/main";
-//        }
-//        else {
-//            model.addAttribute("carNumber_paste", truck.getCarNumber());
-//            model.addAttribute("user", user);
-//            return "newEmployeeOrCar";
-//        }
-//    }
 
     public String addingEmployee(Employee employee, User user, BindingResult bindingResult, Model model) {
         if (!employeeService.validateEmployee(employee, bindingResult, model)) {

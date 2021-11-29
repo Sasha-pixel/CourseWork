@@ -82,10 +82,12 @@ public class AuthorizationService {
                         " в связи с этим, некоторые функции личного кабинета недоступны");
             List<Contract> contracts = contractService.findAllByCustomerAndApproved(user, false);
             Date date = new Date();
-            if (user.getCar().getOsago() == null)
-                model.addAttribute("newOsago", true);
-            else if (user.getCar().getOsago().getEndDate().before(date))
-                model.addAttribute("newOsago", true);
+            if (user.getCar() != null) {
+                if (user.getCar().getOsago() == null)
+                    model.addAttribute("newOsago", true);
+                else if (user.getCar().getOsago().getEndDate().before(date))
+                    model.addAttribute("newOsago", true);
+            }
             else
                 model.addAttribute("newOsago", false);
             model.addAttribute("car", user.getCar());
