@@ -11,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
 
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -99,6 +100,7 @@ public class ContractService {
 
     public void approveContract(Contract contract) {
         contract.setApproved(true);
+        contract.setEndDate(new Date());
         String message = "Здравствуйте, " + contract.getCustomer().getUsername() + ". Вами была оформлена заявка на получение страховки ОСАГО." + '\n' +
                 "Она одобрена, через 2 рабочих дня можете забрать полис ОСАГО в нашем офисе по адресу г.Москва, ул.Проспект Вернадского, д.78";
         mailSender.send(contract.getCustomer().getEmail(), "Новый заказ", message);
@@ -140,7 +142,7 @@ public class ContractService {
         Car car = carService.findByCarNumberOrVehicleIdentificationNumber(orderForm.getCarNumber(), orderForm.getVehicleIdentificationNumber());
         if (car == null)
             car = new Car(orderForm.getCarNumber(), orderForm.getModel(), orderForm.getYearOfManufacture(), orderForm.getPower(), orderForm.getVehicleIdentificationNumber(), user);
-        Contract contract = new Contract(user, employee, driver, car, orderForm.getPrice(), false);
+        Contract contract = new Contract(user, new Date(), employee, driver, car, orderForm.getPrice(), false);
         authorizationService.updateUserCarAndDriver(user, car, driver);
         driverService.saveDriver(driver);
         carService.saveCar(car);

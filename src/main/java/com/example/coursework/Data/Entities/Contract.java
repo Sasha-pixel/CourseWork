@@ -21,7 +21,6 @@ public class Contract {
     private Date endDate;
 
     @Column(name = "creation_date")
-    @CreatedDate
     private Date creationDate;
 
     @ManyToOne
@@ -64,6 +63,16 @@ public class Contract {
         this.creationDate = creationDate;
         this.employee = employee;
         this.osago = osago;
+        this.driver = driver;
+        this.car = car;
+        this.price = price;
+        this.approved = approved;
+    }
+
+    public Contract(User customer, Date creationDate, Employee employee, Driver driver, Car car, int price, boolean approved) {
+        this.customer = customer;
+        this.creationDate = creationDate;
+        this.employee = employee;
         this.driver = driver;
         this.car = car;
         this.price = price;

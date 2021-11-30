@@ -153,12 +153,12 @@
   <div th:switch="${user.activationCode}">
     <div th:case="null">
       <form action="/makeOrder" method="get">
-        <input type="submit" value="оформить заказ"/>
+        <input type="submit" value="оформить ОСАГО"/>
       </form>
     </div>
     <div th:case="*">
       <form action="/makeOrder" method="get">
-        <input type="submit" disabled value="оформить заказ"/>
+        <input type="submit" disabled value="оформить ОСАГО"/>
       </form>
     </div>
   </div>
@@ -242,7 +242,7 @@
               <td th:text="${order.car.carNumber}"></td>
               <td th:text="${order.price}"></td>
               <td th:text="${order.employee.name}"></td>
-              <td><a th:href="@{deleteOrder/{id}(id=${order.id})}" >отменить заказ</a></td>
+              <td><a th:href="@{deleteOrder/{id}(id=${order.id})}" >отменить заявку</a></td>
             </tr>
             </tbody>
           </table>

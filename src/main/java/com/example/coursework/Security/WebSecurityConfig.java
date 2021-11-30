@@ -25,9 +25,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     private UserDetailsServiceImpl service;
 
-    /**
-     * Настройка доступа страниц
-     */
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
@@ -49,7 +46,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/makeOrderAction").hasAuthority(String.valueOf(Role.USER))
                 .anyRequest().authenticated()
                 .and()
-                .addFilterBefore(new CustomFilter("/login", authenticationManager()), UsernamePasswordAuthenticationFilter.class)
+                .addFilterBefore(new CustomFilter("/login", authenticationManager()),
+                        UsernamePasswordAuthenticationFilter.class)
                 .formLogin()
                 .loginPage("/login").permitAll()
                 .and()
@@ -58,24 +56,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .permitAll();
     }
 
-    /**
-     * Метод авторизации
-     */
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-//        auth.jdbcAuthentication()
-//                .dataSource(dataSource)
-//                .passwordEncoder(passwordEncoder())
-//                .usersByUsernameQuery("select username, password, roles from user8 where username = ?")
-//                .authoritiesByUsernameQuery("select u.username, ur.roles from user8 u inner join user_role8 ur on u.id = ur.user_id where u.username=?");
         auth.userDetailsService(service).passwordEncoder(passwordEncoder());
     }
 
-    /**
-     * Создание бина BCryptPasswordEncoder
-     *
-     * @return a {@link org.springframework.security.crypto.password.PasswordEncoder} object.
-     */
     @Bean("pass")
     public PasswordEncoder passwordEncoder(){
         return new BCryptPasswordEncoder(12);

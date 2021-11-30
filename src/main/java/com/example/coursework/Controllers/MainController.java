@@ -3,7 +3,6 @@ package com.example.coursework.Controllers;
 import com.example.coursework.Data.Entities.Role;
 import com.example.coursework.Data.Entities.User;
 import com.example.coursework.Services.AuthorizationService;
-import com.example.coursework.Services.ContractService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
@@ -20,14 +19,6 @@ public class MainController {
     @Autowired
     private AuthorizationService authorizationService;
 
-    @Autowired
-    private ContractService contractService;
-
-    /**
-     * Возврат домашней страницы
-     *
-     * @return a {@link java.lang.String} object.
-     */
     @GetMapping("/")
     public String homePage(@AuthenticationPrincipal User user, Model model) {
         model.addAttribute("user", user);

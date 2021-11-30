@@ -1,0 +1,1242 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>D:/CourseWork/CourseWorkCode/src/main/java/com/example/coursework</OriginalElement>
+  <nodes>
+    <node x="2058.7379320987666" y="1048.0">com.example.coursework.Services.AuthorizationService</node>
+    <node x="2609.2513271604926" y="1181.0">com.example.coursework.Controllers.AuthorizationController</node>
+    <node x="2894.198425925923" y="1181.0">com.example.coursework.Security.WebSecurityConfig</node>
+    <node x="1413.5408333333362" y="738.0">com.example.coursework.Services.DriverService</node>
+    <node x="2832.249166666669" y="1048.0">com.example.coursework.Security.UserDetailsServiceImpl</node>
+    <node x="897.823425925923" y="133.0">com.example.coursework.Data.Entities.Contract</node>
+    <node x="56.642191358025684" y="1048.0">com.example.coursework.Services.OsagoService</node>
+    <node x="749.323425925923" y="873.0">com.example.coursework.Services.ContractService</node>
+    <node x="32.642191358025684" y="873.0">com.example.coursework.Data.Repositories.OsagoRepository</node>
+    <node x="294.9158333333364" y="583.0">com.example.coursework.Data.Repositories.EmployeeRepository</node>
+    <node x="75.07342592592272" y="1181.0">com.example.coursework.Controllers.AdminController</node>
+    <node x="2352.850524691359" y="458.0">com.example.coursework.Data.Entities.User</node>
+    <node x="1455.573425925923" y="1048.0">com.example.coursework.Controllers.ContractController</node>
+    <node x="1564.448425925923" y="583.0">com.example.coursework.Data.Repositories.DriverRepository</node>
+    <node x="421.6658333333363" y="0.0">com.example.coursework.Data.Entities.Employee</node>
+    <node x="2477.573425925923" y="873.0">com.example.coursework.Data.Repositories.UserRepository</node>
+    <node x="3052.249166666669" y="1048.0">com.example.coursework.Security.CustomFilter</node>
+    <node x="0.0" y="1257.0">com.example.coursework.CourseWorkCodeApplicationTests</node>
+    <node x="1277.948425925923" y="583.0">com.example.coursework.Data.Entities.ContractFormModel</node>
+    <node x="790.2220679012335" y="738.0">com.example.coursework.Services.CarService</node>
+    <node x="2161.3741666666697" y="1181.0">com.example.coursework.Controllers.MainController</node>
+    <node x="1399.448425925923" y="458.0">com.example.coursework.Validators.RegexPatterns</node>
+    <node x="602.0" y="1257.0">com.example.coursework.Mail.MailConfig</node>
+    <node x="2132.573425925923" y="343.0">com.example.coursework.Data.Entities.Car</node>
+    <node x="1059.323425925923" y="583.0">com.example.coursework.Data.Repositories.CarRepository</node>
+    <node x="408.57342592592295" y="1048.0">com.example.coursework.Services.AdminService</node>
+    <node x="1957.823425925923" y="873.0">com.example.coursework.Validators.AuthorizationValidator</node>
+    <node x="2344.323425925923" y="343.0">com.example.coursework.Data.Entities.Role</node>
+    <node x="2170.073425925923" y="228.0">com.example.coursework.Data.Entities.Osago</node>
+    <node x="410.07342592592295" y="738.0">com.example.coursework.Services.EmployeeService</node>
+    <node x="1026.1658333333362" y="738.0">com.example.coursework.Validators.ContractFormModelValidator</node>
+    <node x="1777.350524691359" y="738.0">com.example.coursework.Mail.MailSender</node>
+    <node x="1579.6838580246922" y="0.0">com.example.coursework.Data.Entities.Driver</node>
+    <node x="317.0" y="1257.0">com.example.coursework.CourseWorkCodeApplication</node>
+    <node x="863.323425925923" y="583.0">com.example.coursework.Data.Repositories.ContractRepository</node>
+    <node x="500.9158333333363" y="583.0">com.example.coursework.Validators.EmployeeValidator</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="com.example.coursework.Services.ContractService" target="com.example.coursework.Mail.MailSender" relationship="DEPENDENCY">
+      <point x="0.0" y="-15.5" />
+      <point x="826.323425925923" y="831.0" />
+      <point x="1861.850524691359" y="831.0" />
+      <point x="1861.850524691359" y="811.0" />
+      <point x="1808.850524691359" y="811.0" />
+      <point x="-31.5" y="15.5" />
+    </edge>
+    <edge source="com.example.coursework.Services.AdminService" target="com.example.coursework.Data.Entities.User" relationship="DEPENDENCY">
+      <point x="-35.25" y="-15.5" />
+      <point x="443.82342592592295" y="1026.0" />
+      <point x="257.07342592592295" y="1026.0" />
+      <point x="257.07342592592295" y="976.0" />
+      <point x="207.14219135802568" y="976.0" />
+      <point x="207.14219135802568" y="551.0" />
+      <point x="1874.6241666666697" y="551.0" />
+      <point x="1874.6241666666697" y="511.0" />
+      <point x="2373.350524691359" y="511.0" />
+      <point x="-20.5" y="15.5" />
+    </edge>
+    <edge source="com.example.coursework.Data.Entities.Osago" target="com.example.coursework.Data.Entities.Contract" relationship="TO_ONE">
+      <point x="23.5" y="-15.5" />
+      <point x="2240.573425925923" y="206.0" />
+      <point x="2285.100524691359" y="206.0" />
+      <point x="2285.100524691359" y="186.0" />
+      <point x="986.9900925925897" y="186.0" />
+      <point x="35.66666666666674" y="15.5" />
+    </edge>
+    <edge source="com.example.coursework.Data.Entities.Contract" target="com.example.coursework.Data.Entities.Osago" relationship="TO_ONE">
+      <point x="35.66666666666674" y="15.5" />
+      <point x="986.9900925925897" y="186.0" />
+      <point x="2285.100524691359" y="186.0" />
+      <point x="2285.100524691359" y="206.0" />
+      <point x="2240.573425925923" y="206.0" />
+      <point x="23.5" y="-15.5" />
+    </edge>
+    <edge source="com.example.coursework.Services.AuthorizationService" target="com.example.coursework.Data.Entities.Contract" relationship="DEPENDENCY">
+      <point x="46.25" y="-15.5" />
+      <point x="2197.4879320987666" y="1026.0" />
+      <point x="2193.323425925923" y="1026.0" />
+      <point x="2193.323425925923" y="926.0" />
+      <point x="2296.573425925923" y="926.0" />
+      <point x="2296.573425925923" y="196.0" />
+      <point x="951.323425925923" y="196.0" />
+      <point x="0.0" y="15.5" />
+    </edge>
+    <edge source="com.example.coursework.Services.CarService" target="com.example.coursework.Data.Entities.Car" relationship="DEPENDENCY">
+      <point x="30.25" y="-15.5" />
+      <point x="880.9720679012335" y="716.0" />
+      <point x="1154.4158333333362" y="716.0" />
+      <point x="1154.4158333333362" y="676.0" />
+      <point x="1213.823425925923" y="676.0" />
+      <point x="1213.823425925923" y="436.0" />
+      <point x="2169.573425925923" y="436.0" />
+      <point x="0.0" y="15.5" />
+    </edge>
+    <edge source="com.example.coursework.Services.AdminService" target="com.example.coursework.Data.Entities.Employee" relationship="DEPENDENCY">
+      <point x="-35.25" y="-15.5" />
+      <point x="443.82342592592295" y="1026.0" />
+      <point x="257.07342592592295" y="1026.0" />
+      <point x="257.07342592592295" y="976.0" />
+      <point x="207.14219135802568" y="976.0" />
+      <point x="207.14219135802568" y="112.0" />
+      <point x="484.6679938271593" y="112.0" />
+      <point x="484.6679938271593" y="52.0" />
+      <point x="479.6658333333363" y="52.0" />
+      <point x="0.0" y="15.5" />
+    </edge>
+    <edge source="com.example.coursework.Validators.AuthorizationValidator" target="com.example.coursework.Validators.RegexPatterns" relationship="DEPENDENCY">
+      <point x="0.0" y="-15.5" />
+      <point x="2055.823425925923" y="521.0" />
+      <point x="1471.448425925923" y="521.0" />
+      <point x="0.0" y="15.5" />
+    </edge>
+    <edge source="com.example.coursework.Services.DriverService" target="com.example.coursework.Data.Repositories.DriverRepository" relationship="TO_ONE">
+      <point x="34.5" y="-15.5" />
+      <point x="1517.0408333333362" y="686.0" />
+      <point x="1685.198425925923" y="686.0" />
+      <point x="40.25" y="15.5" />
+    </edge>
+    <edge source="com.example.coursework.Data.Repositories.EmployeeRepository" target="com.example.coursework.Data.Entities.Employee" relationship="DEPENDENCY">
+      <point x="0.0" y="-15.5" />
+      <point x="387.9158333333364" y="541.0" />
+      <point x="479.82342592592295" y="541.0" />
+      <point x="479.82342592592295" y="112.0" />
+      <point x="484.6679938271593" y="112.0" />
+      <point x="484.6679938271593" y="52.0" />
+      <point x="479.6658333333363" y="52.0" />
+      <point x="0.0" y="15.5" />
+    </edge>
+    <edge source="com.example.coursework.Controllers.ContractController" target="com.example.coursework.Data.Entities.User" relationship="DEPENDENCY">
+      <point x="57.33333333333326" y="-15.5" />
+      <point x="1598.9067592592562" y="1026.0" />
+      <point x="1714.917993827159" y="1026.0" />
+      <point x="1714.917993827159" y="1016.0" />
+      <point x="1742.0171913580257" y="1016.0" />
+      <point x="1742.0171913580257" y="551.0" />
+      <point x="1874.6241666666697" y="551.0" />
+      <point x="1874.6241666666697" y="511.0" />
+      <point x="2373.350524691359" y="511.0" />
+      <point x="-20.5" y="15.5" />
+    </edge>
+    <edge source="com.example.coursework.Controllers.AuthorizationController" target="com.example.coursework.Data.Entities.User" relationship="CREATE">
+      <point x="67.66666666666652" y="-15.5" />
+      <point x="2778.417993827159" y="1160.0" />
+      <point x="2821.749166666669" y="1160.0" />
+      <point x="2821.749166666669" y="541.0" />
+      <point x="2414.350524691359" y="541.0" />
+      <point x="20.5" y="15.5" />
+    </edge>
+    <edge source="com.example.coursework.Services.AuthorizationService" target="com.example.coursework.Mail.MailSender" relationship="TO_ONE">
+      <point x="-46.25" y="-15.5" />
+      <point x="2104.9879320987666" y="1026.0" />
+      <point x="2013.0137345679002" y="1026.0" />
+      <point x="2013.0137345679002" y="946.0" />
+      <point x="1936.323425925923" y="946.0" />
+      <point x="1936.323425925923" y="831.0" />
+      <point x="1871.850524691359" y="831.0" />
+      <point x="31.5" y="15.5" />
+    </edge>
+    <edge source="com.example.coursework.Services.ContractService" target="com.example.coursework.Data.Entities.Car" relationship="CREATE">
+      <point x="-51.33333333333337" y="-15.5" />
+      <point x="774.9900925925896" y="851.0" />
+      <point x="640.6421913580257" y="851.0" />
+      <point x="640.6421913580257" y="811.0" />
+      <point x="685.4158333333363" y="811.0" />
+      <point x="685.4158333333363" y="426.0" />
+      <point x="2144.9067592592564" y="426.0" />
+      <point x="-24.666666666666742" y="15.5" />
+    </edge>
+    <edge source="com.example.coursework.Controllers.MainController" target="com.example.coursework.Data.Entities.User" relationship="DEPENDENCY">
+      <point x="37.25" y="-15.5" />
+      <point x="2273.1241666666697" y="1160.0" />
+      <point x="2626.1263271604926" y="1160.0" />
+      <point x="2626.1263271604926" y="1110.0" />
+      <point x="1913.850524691359" y="1110.0" />
+      <point x="1913.850524691359" y="551.0" />
+      <point x="1874.6241666666697" y="551.0" />
+      <point x="1874.6241666666697" y="511.0" />
+      <point x="2373.350524691359" y="511.0" />
+      <point x="-20.5" y="15.5" />
+    </edge>
+    <edge source="com.example.coursework.Controllers.ContractController" target="com.example.coursework.Data.Entities.ContractFormModel" relationship="CREATE">
+      <point x="0.0" y="-15.5" />
+      <point x="1541.573425925923" y="1016.0" />
+      <point x="1597.3470679012335" y="1016.0" />
+      <point x="1597.3470679012335" y="696.0" />
+      <point x="1374.448425925923" y="696.0" />
+      <point x="1374.448425925923" y="676.0" />
+      <point x="1415.198425925923" y="676.0" />
+      <point x="45.75" y="15.5" />
+    </edge>
+    <edge source="com.example.coursework.Data.Entities.User" target="com.example.coursework.Data.Entities.Contract" relationship="TO_MANY">
+      <point x="-20.5" y="-15.5" />
+      <point x="2373.350524691359" y="436.0" />
+      <point x="2322.823425925923" y="436.0" />
+      <point x="2322.823425925923" y="416.0" />
+      <point x="2317.573425925923" y="416.0" />
+      <point x="2317.573425925923" y="206.0" />
+      <point x="2285.100524691359" y="206.0" />
+      <point x="2285.100524691359" y="186.0" />
+      <point x="986.9900925925897" y="186.0" />
+      <point x="35.66666666666674" y="15.5" />
+    </edge>
+    <edge source="com.example.coursework.Services.AdminService" target="com.example.coursework.Services.EmployeeService" relationship="TO_ONE">
+      <point x="35.25" y="-15.5" />
+      <point x="514.323425925923" y="1026.0" />
+      <point x="701.073425925923" y="1026.0" />
+      <point x="701.073425925923" y="976.0" />
+      <point x="651.1421913580257" y="976.0" />
+      <point x="651.1421913580257" y="841.0" />
+      <point x="695.9158333333363" y="841.0" />
+      <point x="695.9158333333363" y="801.0" />
+      <point x="532.323425925923" y="801.0" />
+      <point x="40.75" y="15.5" />
+    </edge>
+    <edge source="com.example.coursework.Services.OsagoService" target="com.example.coursework.Services.ContractService" relationship="TO_ONE">
+      <point x="47.0" y="-15.5" />
+      <point x="174.14219135802568" y="1026.0" />
+      <point x="155.64219135802568" y="1026.0" />
+      <point x="155.64219135802568" y="986.0" />
+      <point x="821.323425925923" y="986.0" />
+      <point x="821.323425925923" y="946.0" />
+      <point x="787.823425925923" y="946.0" />
+      <point x="-38.5" y="15.5" />
+    </edge>
+    <edge source="com.example.coursework.Services.CarService" target="com.example.coursework.Data.Repositories.CarRepository" relationship="TO_ONE">
+      <point x="-30.25" y="-15.5" />
+      <point x="820.4720679012335" y="676.0" />
+      <point x="1095.323425925923" y="676.0" />
+      <point x="-36.0" y="15.5" />
+    </edge>
+    <edge source="com.example.coursework.Security.UserDetailsServiceImpl" target="com.example.coursework.Data.Repositories.UserRepository" relationship="TO_ONE">
+      <point x="-50.0" y="-15.5" />
+      <point x="2882.249166666669" y="996.0" />
+      <point x="2569.600524691359" y="996.0" />
+      <point x="2569.600524691359" y="986.0" />
+      <point x="2515.323425925923" y="986.0" />
+      <point x="-37.75" y="15.5" />
+    </edge>
+    <edge source="com.example.coursework.Services.ContractService" target="com.example.coursework.Services.AuthorizationService" relationship="DEPENDENCY">
+      <point x="38.5" y="15.5" />
+      <point x="864.823425925923" y="926.0" />
+      <point x="831.323425925923" y="926.0" />
+      <point x="831.323425925923" y="936.0" />
+      <point x="2193.323425925923" y="936.0" />
+      <point x="2193.323425925923" y="1026.0" />
+      <point x="2197.4879320987666" y="1026.0" />
+      <point x="46.25" y="-15.5" />
+    </edge>
+    <edge source="com.example.coursework.Services.AuthorizationService" target="com.example.coursework.Services.ContractService" relationship="DEPENDENCY">
+      <point x="46.25" y="-15.5" />
+      <point x="2197.4879320987666" y="1026.0" />
+      <point x="2193.323425925923" y="1026.0" />
+      <point x="2193.323425925923" y="936.0" />
+      <point x="831.323425925923" y="936.0" />
+      <point x="831.323425925923" y="926.0" />
+      <point x="864.823425925923" y="926.0" />
+      <point x="38.5" y="15.5" />
+    </edge>
+    <edge source="com.example.coursework.Data.Entities.Contract" target="com.example.coursework.Data.Entities.User" relationship="TO_ONE">
+      <point x="35.66666666666674" y="15.5" />
+      <point x="986.9900925925897" y="186.0" />
+      <point x="2285.100524691359" y="186.0" />
+      <point x="2285.100524691359" y="206.0" />
+      <point x="2317.573425925923" y="206.0" />
+      <point x="2317.573425925923" y="416.0" />
+      <point x="2322.823425925923" y="416.0" />
+      <point x="2322.823425925923" y="436.0" />
+      <point x="2373.350524691359" y="436.0" />
+      <point x="-20.5" y="-15.5" />
+    </edge>
+    <edge source="com.example.coursework.Data.Entities.User" target="com.example.coursework.Data.Entities.Driver" relationship="TO_ONE">
+      <point x="-20.5" y="-15.5" />
+      <point x="2373.350524691359" y="436.0" />
+      <point x="2322.823425925923" y="436.0" />
+      <point x="2322.823425925923" y="72.0" />
+      <point x="1596.948425925923" y="72.0" />
+      <point x="1596.948425925923" y="62.0" />
+      <point x="1625.6838580246922" y="62.0" />
+      <point x="0.0" y="15.5" />
+    </edge>
+    <edge source="com.example.coursework.Data.Entities.Driver" target="com.example.coursework.Data.Entities.User" relationship="TO_ONE">
+      <point x="0.0" y="15.5" />
+      <point x="1625.6838580246922" y="62.0" />
+      <point x="1596.948425925923" y="62.0" />
+      <point x="1596.948425925923" y="72.0" />
+      <point x="2322.823425925923" y="72.0" />
+      <point x="2322.823425925923" y="436.0" />
+      <point x="2373.350524691359" y="436.0" />
+      <point x="-20.5" y="-15.5" />
+    </edge>
+    <edge source="com.example.coursework.Data.Entities.Employee" target="com.example.coursework.Data.Entities.Contract" relationship="DEPENDENCY">
+      <point x="0.0" y="15.5" />
+      <point x="479.6658333333363" y="52.0" />
+      <point x="484.6679938271593" y="52.0" />
+      <point x="484.6679938271593" y="62.0" />
+      <point x="961.323425925923" y="62.0" />
+      <point x="961.323425925923" y="112.0" />
+      <point x="978.073425925923" y="112.0" />
+      <point x="26.75" y="-15.5" />
+    </edge>
+    <edge source="com.example.coursework.Data.Entities.Contract" target="com.example.coursework.Data.Entities.Employee" relationship="DEPENDENCY">
+      <point x="26.75" y="-15.5" />
+      <point x="978.073425925923" y="112.0" />
+      <point x="961.323425925923" y="112.0" />
+      <point x="961.323425925923" y="62.0" />
+      <point x="484.6679938271593" y="62.0" />
+      <point x="484.6679938271593" y="52.0" />
+      <point x="479.6658333333363" y="52.0" />
+      <point x="0.0" y="15.5" />
+    </edge>
+    <edge source="com.example.coursework.Services.EmployeeService" target="com.example.coursework.Data.Repositories.EmployeeRepository" relationship="TO_ONE">
+      <point x="40.75" y="-15.5" />
+      <point x="532.323425925923" y="716.0" />
+      <point x="592.9158333333363" y="716.0" />
+      <point x="592.9158333333363" y="636.0" />
+      <point x="434.4158333333364" y="636.0" />
+      <point x="46.5" y="15.5" />
+    </edge>
+    <edge source="com.example.coursework.Services.ContractService" target="com.example.coursework.Services.DriverService" relationship="DEPENDENCY">
+      <point x="0.0" y="-15.5" />
+      <point x="826.323425925923" y="801.0" />
+      <point x="1448.0408333333362" y="801.0" />
+      <point x="-34.5" y="15.5" />
+    </edge>
+    <edge source="com.example.coursework.Data.Entities.Car" target="com.example.coursework.Data.Entities.Contract" relationship="TO_MANY">
+      <point x="18.5" y="-15.5" />
+      <point x="2188.073425925923" y="311.0" />
+      <point x="2285.323425925923" y="311.0" />
+      <point x="2285.100524691359" y="186.0" />
+      <point x="986.9900925925897" y="186.0" />
+      <point x="35.66666666666674" y="15.5" />
+    </edge>
+    <edge source="com.example.coursework.Services.ContractService" target="com.example.coursework.Data.Entities.Driver" relationship="CREATE">
+      <point x="-51.33333333333337" y="-15.5" />
+      <point x="774.9900925925896" y="851.0" />
+      <point x="640.6421913580257" y="851.0" />
+      <point x="640.6421913580257" y="811.0" />
+      <point x="218.14219135802568" y="811.0" />
+      <point x="218.14219135802568" y="82.0" />
+      <point x="1595.0171913580257" y="82.0" />
+      <point x="-30.666666666666742" y="15.5" />
+    </edge>
+    <edge source="com.example.coursework.Data.Repositories.DriverRepository" target="com.example.coursework.Data.Entities.Driver" relationship="DEPENDENCY">
+      <point x="0.0" y="-15.5" />
+      <point x="1644.948425925923" y="112.0" />
+      <point x="1979.0171913580257" y="112.0" />
+      <point x="1979.0171913580257" y="62.0" />
+      <point x="1656.3505246913592" y="62.0" />
+      <point x="30.666666666666742" y="15.5" />
+    </edge>
+    <edge source="com.example.coursework.Data.Repositories.ContractRepository" target="com.example.coursework.Data.Entities.User" relationship="DEPENDENCY">
+      <point x="0.0" y="-15.5" />
+      <point x="951.323425925923" y="541.0" />
+      <point x="1874.6241666666697" y="541.0" />
+      <point x="1874.6241666666697" y="511.0" />
+      <point x="2373.350524691359" y="511.0" />
+      <point x="-20.5" y="15.5" />
+    </edge>
+    <edge source="com.example.coursework.Data.Entities.User" target="com.example.coursework.Data.Entities.Role" relationship="TO_ONE">
+      <point x="-20.5" y="-15.5" />
+      <point x="2373.350524691359" y="436.0" />
+      <point x="2322.823425925923" y="436.0" />
+      <point x="2322.823425925923" y="416.0" />
+      <point x="2364.573425925923" y="416.0" />
+      <point x="-20.25" y="15.5" />
+    </edge>
+    <edge source="com.example.coursework.Services.ContractService" target="com.example.coursework.Data.Repositories.ContractRepository" relationship="DEPENDENCY">
+      <point x="0.0" y="-15.5" />
+      <point x="826.323425925923" y="801.0" />
+      <point x="706.4158333333363" y="801.0" />
+      <point x="706.4158333333363" y="646.0" />
+      <point x="907.323425925923" y="646.0" />
+      <point x="-44.0" y="15.5" />
+    </edge>
+    <edge source="com.example.coursework.Services.ContractService" target="com.example.coursework.Services.EmployeeService" relationship="DEPENDENCY">
+      <point x="0.0" y="-15.5" />
+      <point x="826.323425925923" y="821.0" />
+      <point x="450.82342592592295" y="821.0" />
+      <point x="-40.75" y="15.5" />
+    </edge>
+    <edge source="com.example.coursework.Services.ContractService" target="com.example.coursework.Data.Entities.Contract" relationship="CREATE">
+      <point x="-51.33333333333337" y="-15.5" />
+      <point x="774.9900925925896" y="851.0" />
+      <point x="640.6421913580257" y="851.0" />
+      <point x="640.6421913580257" y="811.0" />
+      <point x="228.64219135802568" y="811.0" />
+      <point x="228.64219135802568" y="186.0" />
+      <point x="915.6567592592562" y="186.0" />
+      <point x="-35.66666666666674" y="15.5" />
+    </edge>
+    <edge source="com.example.coursework.Services.AdminService" target="com.example.coursework.Services.ContractService" relationship="TO_ONE">
+      <point x="35.25" y="-15.5" />
+      <point x="514.323425925923" y="1026.0" />
+      <point x="701.073425925923" y="1026.0" />
+      <point x="701.073425925923" y="996.0" />
+      <point x="821.323425925923" y="996.0" />
+      <point x="821.323425925923" y="946.0" />
+      <point x="787.823425925923" y="946.0" />
+      <point x="-38.5" y="15.5" />
+    </edge>
+    <edge source="com.example.coursework.Services.EmployeeService" target="com.example.coursework.Data.Entities.Employee" relationship="DEPENDENCY">
+      <point x="-40.75" y="-15.5" />
+      <point x="450.82342592592295" y="716.0" />
+      <point x="379.6421913580257" y="716.0" />
+      <point x="379.6421913580257" y="646.0" />
+      <point x="284.4158333333364" y="646.0" />
+      <point x="284.4158333333364" y="112.0" />
+      <point x="484.6679938271593" y="112.0" />
+      <point x="484.6679938271593" y="52.0" />
+      <point x="479.6658333333363" y="52.0" />
+      <point x="0.0" y="15.5" />
+    </edge>
+    <edge source="com.example.coursework.Services.ContractService" target="com.example.coursework.Services.CarService" relationship="DEPENDENCY">
+      <point x="0.0" y="-15.5" />
+      <point x="826.323425925923" y="801.0" />
+      <point x="820.4720679012335" y="801.0" />
+      <point x="-30.25" y="15.5" />
+    </edge>
+    <edge source="com.example.coursework.Security.WebSecurityConfig" target="com.example.coursework.Security.UserDetailsServiceImpl" relationship="TO_ONE">
+      <point x="-59.0" y="-15.5" />
+      <point x="2923.698425925923" y="1160.0" />
+      <point x="2882.249166666669" y="1160.0" />
+      <point x="-50.0" y="15.5" />
+    </edge>
+    <edge source="com.example.coursework.Services.AuthorizationService" target="com.example.coursework.Data.Entities.Driver" relationship="DEPENDENCY">
+      <point x="46.25" y="-15.5" />
+      <point x="2197.4879320987666" y="1026.0" />
+      <point x="2193.323425925923" y="1026.0" />
+      <point x="2193.323425925923" y="926.0" />
+      <point x="2467.073425925923" y="926.0" />
+      <point x="2467.073425925923" y="112.0" />
+      <point x="1979.0171913580257" y="112.0" />
+      <point x="1979.0171913580257" y="62.0" />
+      <point x="1656.3505246913592" y="62.0" />
+      <point x="30.666666666666742" y="15.5" />
+    </edge>
+    <edge source="com.example.coursework.Validators.ContractFormModelValidator" target="com.example.coursework.Validators.RegexPatterns" relationship="DEPENDENCY">
+      <point x="0.0" y="-15.5" />
+      <point x="1146.6658333333362" y="706.0" />
+      <point x="1336.948425925923" y="706.0" />
+      <point x="1336.948425925923" y="686.0" />
+      <point x="1471.448425925923" y="686.0" />
+      <point x="0.0" y="15.5" />
+    </edge>
+    <edge source="com.example.coursework.Services.AuthorizationService" target="com.example.coursework.Data.Entities.Osago" relationship="DEPENDENCY">
+      <point x="46.25" y="-15.5" />
+      <point x="2197.4879320987666" y="1026.0" />
+      <point x="2193.323425925923" y="1026.0" />
+      <point x="2193.323425925923" y="926.0" />
+      <point x="2217.073425925923" y="926.0" />
+      <point x="0.0" y="15.5" />
+    </edge>
+    <edge source="com.example.coursework.Data.Entities.Car" target="com.example.coursework.Data.Entities.User" relationship="TO_ONE">
+      <point x="24.666666666666742" y="15.5" />
+      <point x="2194.2400925925895" y="416.0" />
+      <point x="2322.823425925923" y="416.0" />
+      <point x="2322.823425925923" y="436.0" />
+      <point x="2373.350524691359" y="436.0" />
+      <point x="-20.5" y="-15.5" />
+    </edge>
+    <edge source="com.example.coursework.Data.Entities.User" target="com.example.coursework.Data.Entities.Car" relationship="TO_ONE">
+      <point x="-20.5" y="-15.5" />
+      <point x="2373.350524691359" y="436.0" />
+      <point x="2322.823425925923" y="436.0" />
+      <point x="2322.823425925923" y="416.0" />
+      <point x="2194.2400925925895" y="416.0" />
+      <point x="24.666666666666742" y="15.5" />
+    </edge>
+    <edge source="com.example.coursework.Services.DriverService" target="com.example.coursework.Data.Entities.Driver" relationship="DEPENDENCY">
+      <point x="-34.5" y="-15.5" />
+      <point x="1448.0408333333362" y="716.0" />
+      <point x="1477.5408333333362" y="716.0" />
+      <point x="1477.5408333333362" y="676.0" />
+      <point x="1553.948425925923" y="676.0" />
+      <point x="1553.948425925923" y="112.0" />
+      <point x="1979.0171913580257" y="112.0" />
+      <point x="1979.0171913580257" y="62.0" />
+      <point x="1656.3505246913592" y="62.0" />
+      <point x="30.666666666666742" y="15.5" />
+    </edge>
+    <edge source="com.example.coursework.Services.OsagoService" target="com.example.coursework.Data.Repositories.OsagoRepository" relationship="TO_ONE">
+      <point x="47.0" y="-15.5" />
+      <point x="174.14219135802568" y="1026.0" />
+      <point x="155.64219135802568" y="1026.0" />
+      <point x="41.0" y="15.5" />
+    </edge>
+    <edge source="com.example.coursework.Services.EmployeeService" target="com.example.coursework.Data.Repositories.ContractRepository" relationship="TO_ONE">
+      <point x="40.75" y="-15.5" />
+      <point x="532.323425925923" y="716.0" />
+      <point x="592.9158333333363" y="716.0" />
+      <point x="592.9158333333363" y="666.0" />
+      <point x="995.323425925923" y="666.0" />
+      <point x="44.0" y="15.5" />
+    </edge>
+    <edge source="com.example.coursework.Services.EmployeeService" target="com.example.coursework.Data.Repositories.ContractRepository" relationship="DEPENDENCY">
+      <point x="-40.75" y="-15.5" />
+      <point x="450.82342592592295" y="716.0" />
+      <point x="379.6421913580257" y="716.0" />
+      <point x="379.6421913580257" y="656.0" />
+      <point x="706.4158333333363" y="656.0" />
+      <point x="706.4158333333363" y="646.0" />
+      <point x="907.323425925923" y="646.0" />
+      <point x="-44.0" y="15.5" />
+    </edge>
+    <edge source="com.example.coursework.Controllers.AdminController" target="com.example.coursework.Services.AdminService" relationship="DEPENDENCY">
+      <point x="53.0" y="-15.5" />
+      <point x="207.57342592592272" y="1160.0" />
+      <point x="484.07342592592295" y="1160.0" />
+      <point x="484.07342592592295" y="1140.0" />
+      <point x="514.323425925923" y="1140.0" />
+      <point x="35.25" y="15.5" />
+    </edge>
+    <edge source="com.example.coursework.Services.DriverService" target="com.example.coursework.Data.Repositories.DriverRepository" relationship="DEPENDENCY">
+      <point x="-34.5" y="-15.5" />
+      <point x="1448.0408333333362" y="716.0" />
+      <point x="1477.5408333333362" y="716.0" />
+      <point x="1477.5408333333362" y="676.0" />
+      <point x="1604.698425925923" y="676.0" />
+      <point x="-40.25" y="15.5" />
+    </edge>
+    <edge source="com.example.coursework.Data.Entities.Contract" target="com.example.coursework.Data.Entities.Employee" relationship="TO_ONE">
+      <point x="-26.75" y="-15.5" />
+      <point x="924.573425925923" y="112.0" />
+      <point x="946.323425925923" y="112.0" />
+      <point x="946.323425925923" y="72.0" />
+      <point x="518.3325000000029" y="72.0" />
+      <point x="38.66666666666663" y="15.5" />
+    </edge>
+    <edge source="com.example.coursework.Data.Entities.Employee" target="com.example.coursework.Data.Entities.Contract" relationship="TO_MANY">
+      <point x="38.66666666666663" y="15.5" />
+      <point x="518.3325000000029" y="72.0" />
+      <point x="946.323425925923" y="72.0" />
+      <point x="946.323425925923" y="112.0" />
+      <point x="924.573425925923" y="112.0" />
+      <point x="-26.75" y="-15.5" />
+    </edge>
+    <edge source="com.example.coursework.Services.AuthorizationService" target="com.example.coursework.Data.Repositories.UserRepository" relationship="DEPENDENCY">
+      <point x="46.25" y="-15.5" />
+      <point x="2197.4879320987666" y="1026.0" />
+      <point x="2193.323425925923" y="1026.0" />
+      <point x="2193.323425925923" y="1016.0" />
+      <point x="2579.600524691359" y="1016.0" />
+      <point x="2579.600524691359" y="976.0" />
+      <point x="2590.823425925923" y="976.0" />
+      <point x="37.75" y="15.5" />
+    </edge>
+    <edge source="com.example.coursework.Services.ContractService" target="com.example.coursework.Data.Entities.Employee" relationship="DEPENDENCY">
+      <point x="0.0" y="-15.5" />
+      <point x="826.323425925923" y="801.0" />
+      <point x="716.9158333333363" y="801.0" />
+      <point x="716.9158333333363" y="112.0" />
+      <point x="484.6679938271593" y="112.0" />
+      <point x="484.6679938271593" y="52.0" />
+      <point x="479.6658333333363" y="52.0" />
+      <point x="0.0" y="15.5" />
+    </edge>
+    <edge source="com.example.coursework.Services.AdminService" target="com.example.coursework.Services.EmployeeService" relationship="DEPENDENCY">
+      <point x="-35.25" y="-15.5" />
+      <point x="443.82342592592295" y="1026.0" />
+      <point x="257.07342592592295" y="1026.0" />
+      <point x="257.07342592592295" y="976.0" />
+      <point x="450.82342592592295" y="976.0" />
+      <point x="-40.75" y="15.5" />
+    </edge>
+    <edge source="com.example.coursework.Controllers.MainController" target="com.example.coursework.Services.AuthorizationService" relationship="DEPENDENCY">
+      <point x="37.25" y="-15.5" />
+      <point x="2273.1241666666697" y="1160.0" />
+      <point x="2626.1263271604926" y="1160.0" />
+      <point x="2626.1263271604926" y="1140.0" />
+      <point x="2795.6129320987666" y="1140.0" />
+      <point x="2795.6129320987666" y="1100.0" />
+      <point x="2197.4879320987666" y="1100.0" />
+      <point x="46.25" y="15.5" />
+    </edge>
+    <edge source="com.example.coursework.Services.ContractService" target="com.example.coursework.Validators.ContractFormModelValidator" relationship="DEPENDENCY">
+      <point x="0.0" y="-15.5" />
+      <point x="826.323425925923" y="801.0" />
+      <point x="1086.4158333333362" y="801.0" />
+      <point x="-60.25" y="15.5" />
+    </edge>
+    <edge source="com.example.coursework.Services.OsagoService" target="com.example.coursework.Services.ContractService" relationship="DEPENDENCY">
+      <point x="0.0" y="-15.5" />
+      <point x="127.14219135802568" y="1026.0" />
+      <point x="145.64219135802568" y="1026.0" />
+      <point x="145.64219135802568" y="1006.0" />
+      <point x="831.323425925923" y="1006.0" />
+      <point x="831.323425925923" y="926.0" />
+      <point x="864.823425925923" y="926.0" />
+      <point x="38.5" y="15.5" />
+    </edge>
+    <edge source="com.example.coursework.Services.ContractService" target="com.example.coursework.Data.Repositories.ContractRepository" relationship="TO_ONE">
+      <point x="51.33333333333326" y="-15.5" />
+      <point x="877.6567592592562" y="851.0" />
+      <point x="1150.448425925923" y="851.0" />
+      <point x="1150.448425925923" y="791.0" />
+      <point x="1277.6658333333362" y="791.0" />
+      <point x="1277.6658333333362" y="656.0" />
+      <point x="995.323425925923" y="656.0" />
+      <point x="44.0" y="15.5" />
+    </edge>
+    <edge source="com.example.coursework.Security.WebSecurityConfig" target="com.example.coursework.Security.CustomFilter" relationship="CREATE">
+      <point x="0.0" y="-15.5" />
+      <point x="2982.698425925923" y="1150.0" />
+      <point x="3119.249166666669" y="1150.0" />
+      <point x="0.0" y="15.5" />
+    </edge>
+    <edge source="com.example.coursework.Data.Entities.Contract" target="com.example.coursework.Data.Entities.Driver" relationship="TO_ONE">
+      <point x="-26.75" y="-15.5" />
+      <point x="924.573425925923" y="112.0" />
+      <point x="946.323425925923" y="112.0" />
+      <point x="946.323425925923" y="92.0" />
+      <point x="1596.948425925923" y="92.0" />
+      <point x="1596.948425925923" y="62.0" />
+      <point x="1625.6838580246922" y="62.0" />
+      <point x="0.0" y="15.5" />
+    </edge>
+    <edge source="com.example.coursework.Security.WebSecurityConfig" target="com.example.coursework.Security.UserDetailsServiceImpl" relationship="DEPENDENCY">
+      <point x="59.0" y="-15.5" />
+      <point x="3041.698425925923" y="1160.0" />
+      <point x="3162.999166666669" y="1160.0" />
+      <point x="3162.999166666669" y="1140.0" />
+      <point x="2982.249166666669" y="1140.0" />
+      <point x="50.0" y="15.5" />
+    </edge>
+    <edge source="com.example.coursework.Data.Entities.User" target="com.example.coursework.Data.Entities.Car" relationship="DEPENDENCY">
+      <point x="20.5" y="-15.5" />
+      <point x="2414.350524691359" y="426.0" />
+      <point x="2169.573425925923" y="426.0" />
+      <point x="0.0" y="15.5" />
+    </edge>
+    <edge source="com.example.coursework.Data.Entities.Car" target="com.example.coursework.Data.Entities.User" relationship="DEPENDENCY">
+      <point x="0.0" y="15.5" />
+      <point x="2169.573425925923" y="426.0" />
+      <point x="2414.350524691359" y="426.0" />
+      <point x="20.5" y="-15.5" />
+    </edge>
+    <edge source="com.example.coursework.Services.OsagoService" target="com.example.coursework.Data.Repositories.OsagoRepository" relationship="DEPENDENCY">
+      <point x="0.0" y="-15.5" />
+      <point x="127.14219135802568" y="1026.0" />
+      <point x="145.64219135802568" y="1026.0" />
+      <point x="145.64219135802568" y="996.0" />
+      <point x="73.64219135802568" y="996.0" />
+      <point x="-41.0" y="15.5" />
+    </edge>
+    <edge source="com.example.coursework.Data.Entities.User" target="com.example.coursework.Data.Entities.Role" relationship="DEPENDENCY">
+      <point x="20.5" y="-15.5" />
+      <point x="2414.350524691359" y="436.0" />
+      <point x="2456.573425925923" y="436.0" />
+      <point x="2456.573425925923" y="396.0" />
+      <point x="2405.073425925923" y="396.0" />
+      <point x="20.25" y="15.5" />
+    </edge>
+    <edge source="com.example.coursework.Data.Entities.Contract" target="com.example.coursework.Data.Entities.Car" relationship="TO_ONE">
+      <point x="35.66666666666674" y="15.5" />
+      <point x="986.9900925925897" y="186.0" />
+      <point x="2285.100524691359" y="186.0" />
+      <point x="2285.323425925923" y="311.0" />
+      <point x="2188.073425925923" y="311.0" />
+      <point x="18.5" y="-15.5" />
+    </edge>
+    <edge source="com.example.coursework.Services.ContractService" target="com.example.coursework.Services.CarService" relationship="TO_ONE">
+      <point x="51.33333333333326" y="-15.5" />
+      <point x="877.6567592592562" y="851.0" />
+      <point x="1150.448425925923" y="851.0" />
+      <point x="1150.448425925923" y="791.0" />
+      <point x="880.9720679012335" y="791.0" />
+      <point x="30.25" y="15.5" />
+    </edge>
+    <edge source="com.example.coursework.Controllers.MainController" target="com.example.coursework.Services.AuthorizationService" relationship="TO_ONE">
+      <point x="-37.25" y="-15.5" />
+      <point x="2198.6241666666697" y="1130.0" />
+      <point x="1874.6241666666697" y="1130.0" />
+      <point x="1874.6241666666697" y="1120.0" />
+      <point x="2104.9879320987666" y="1120.0" />
+      <point x="-46.25" y="15.5" />
+    </edge>
+    <edge source="com.example.coursework.Data.Entities.User" target="com.example.coursework.Data.Entities.Driver" relationship="DEPENDENCY">
+      <point x="20.5" y="-15.5" />
+      <point x="2414.350524691359" y="406.0" />
+      <point x="2435.823425925923" y="406.0" />
+      <point x="2435.823425925923" y="112.0" />
+      <point x="1979.0171913580257" y="112.0" />
+      <point x="1979.0171913580257" y="62.0" />
+      <point x="1656.3505246913592" y="62.0" />
+      <point x="30.666666666666742" y="15.5" />
+    </edge>
+    <edge source="com.example.coursework.Data.Entities.Driver" target="com.example.coursework.Data.Entities.User" relationship="DEPENDENCY">
+      <point x="30.666666666666742" y="15.5" />
+      <point x="1656.3505246913592" y="62.0" />
+      <point x="1979.0171913580257" y="62.0" />
+      <point x="1979.0171913580257" y="112.0" />
+      <point x="2435.823425925923" y="112.0" />
+      <point x="2435.823425925923" y="406.0" />
+      <point x="2414.350524691359" y="406.0" />
+      <point x="20.5" y="-15.5" />
+    </edge>
+    <edge source="com.example.coursework.Services.EmployeeService" target="com.example.coursework.Data.Entities.Contract" relationship="DEPENDENCY">
+      <point x="-40.75" y="-15.5" />
+      <point x="450.82342592592295" y="716.0" />
+      <point x="379.6421913580257" y="716.0" />
+      <point x="379.6421913580257" y="646.0" />
+      <point x="284.4158333333364" y="646.0" />
+      <point x="284.4158333333364" y="196.0" />
+      <point x="951.323425925923" y="196.0" />
+      <point x="0.0" y="15.5" />
+    </edge>
+    <edge source="com.example.coursework.Security.UserDetailsServiceImpl" target="com.example.coursework.Data.Repositories.UserRepository" relationship="DEPENDENCY">
+      <point x="50.0" y="-15.5" />
+      <point x="2982.249166666669" y="1026.0" />
+      <point x="2937.249166666669" y="1026.0" />
+      <point x="2937.249166666669" y="986.0" />
+      <point x="2579.600524691359" y="986.0" />
+      <point x="2579.600524691359" y="976.0" />
+      <point x="2590.823425925923" y="976.0" />
+      <point x="37.75" y="15.5" />
+    </edge>
+    <edge source="com.example.coursework.Controllers.ContractController" target="com.example.coursework.Services.ContractService" relationship="DEPENDENCY">
+      <point x="57.33333333333326" y="-15.5" />
+      <point x="1598.9067592592562" y="1026.0" />
+      <point x="1714.917993827159" y="1026.0" />
+      <point x="1714.917993827159" y="966.0" />
+      <point x="831.323425925923" y="966.0" />
+      <point x="831.323425925923" y="926.0" />
+      <point x="864.823425925923" y="926.0" />
+      <point x="38.5" y="15.5" />
+    </edge>
+    <edge source="com.example.coursework.Security.WebSecurityConfig" target="com.example.coursework.Data.Entities.Role" relationship="DEPENDENCY">
+      <point x="59.0" y="-15.5" />
+      <point x="3041.698425925923" y="1160.0" />
+      <point x="3162.999166666669" y="1160.0" />
+      <point x="3162.999166666669" y="1140.0" />
+      <point x="3196.749166666669" y="1140.0" />
+      <point x="3196.749166666669" y="426.0" />
+      <point x="2456.573425925923" y="426.0" />
+      <point x="2456.573425925923" y="396.0" />
+      <point x="2405.073425925923" y="396.0" />
+      <point x="20.25" y="15.5" />
+    </edge>
+    <edge source="com.example.coursework.Services.ContractService" target="com.example.coursework.Services.EmployeeService" relationship="TO_ONE">
+      <point x="51.33333333333326" y="-15.5" />
+      <point x="877.6567592592562" y="851.0" />
+      <point x="1150.448425925923" y="851.0" />
+      <point x="1150.448425925923" y="811.0" />
+      <point x="695.9158333333363" y="811.0" />
+      <point x="695.9158333333363" y="801.0" />
+      <point x="532.323425925923" y="801.0" />
+      <point x="40.75" y="15.5" />
+    </edge>
+    <edge source="com.example.coursework.Validators.EmployeeValidator" target="com.example.coursework.Validators.RegexPatterns" relationship="DEPENDENCY">
+      <point x="0.0" y="-15.5" />
+      <point x="587.9158333333363" y="561.0" />
+      <point x="489.82342592592295" y="561.0" />
+      <point x="489.82342592592295" y="531.0" />
+      <point x="1471.448425925923" y="531.0" />
+      <point x="0.0" y="15.5" />
+    </edge>
+    <edge source="com.example.coursework.Controllers.AuthorizationController" target="com.example.coursework.Services.AuthorizationService" relationship="TO_ONE">
+      <point x="-67.66666666666674" y="-15.5" />
+      <point x="2643.084660493826" y="1130.0" />
+      <point x="1874.6241666666697" y="1130.0" />
+      <point x="1874.6241666666697" y="1120.0" />
+      <point x="2104.9879320987666" y="1120.0" />
+      <point x="-46.25" y="15.5" />
+    </edge>
+    <edge source="com.example.coursework.Services.ContractService" target="com.example.coursework.Data.Entities.ContractFormModel" relationship="CREATE">
+      <point x="-51.33333333333337" y="-15.5" />
+      <point x="774.9900925925896" y="851.0" />
+      <point x="640.6421913580257" y="851.0" />
+      <point x="640.6421913580257" y="811.0" />
+      <point x="685.4158333333363" y="811.0" />
+      <point x="685.4158333333363" y="696.0" />
+      <point x="1374.448425925923" y="696.0" />
+      <point x="1374.448425925923" y="676.0" />
+      <point x="1415.198425925923" y="676.0" />
+      <point x="45.75" y="15.5" />
+    </edge>
+    <edge source="com.example.coursework.Controllers.AdminController" target="com.example.coursework.Data.Entities.User" relationship="DEPENDENCY">
+      <point x="53.0" y="-15.5" />
+      <point x="207.57342592592272" y="1160.0" />
+      <point x="484.07342592592295" y="1160.0" />
+      <point x="484.07342592592295" y="1140.0" />
+      <point x="1766.850524691359" y="1140.0" />
+      <point x="1766.850524691359" y="551.0" />
+      <point x="1874.6241666666697" y="551.0" />
+      <point x="1874.6241666666697" y="511.0" />
+      <point x="2373.350524691359" y="511.0" />
+      <point x="-20.5" y="15.5" />
+    </edge>
+    <edge source="com.example.coursework.Controllers.AdminController" target="com.example.coursework.Services.AdminService" relationship="TO_ONE">
+      <point x="0.0" y="-15.5" />
+      <point x="154.57342592592272" y="1160.0" />
+      <point x="152.39219135802568" y="1160.0" />
+      <point x="152.39219135802568" y="1150.0" />
+      <point x="443.82342592592295" y="1150.0" />
+      <point x="-35.25" y="15.5" />
+    </edge>
+    <edge source="com.example.coursework.Services.AdminService" target="com.example.coursework.Services.ContractService" relationship="DEPENDENCY">
+      <point x="-35.25" y="-15.5" />
+      <point x="443.82342592592295" y="1026.0" />
+      <point x="257.07342592592295" y="1026.0" />
+      <point x="257.07342592592295" y="1016.0" />
+      <point x="831.323425925923" y="1016.0" />
+      <point x="831.323425925923" y="926.0" />
+      <point x="864.823425925923" y="926.0" />
+      <point x="38.5" y="15.5" />
+    </edge>
+    <edge source="com.example.coursework.Validators.AuthorizationValidator" target="com.example.coursework.Services.AuthorizationService" relationship="DEPENDENCY">
+      <point x="49.0" y="15.5" />
+      <point x="2104.823425925923" y="926.0" />
+      <point x="2193.323425925923" y="926.0" />
+      <point x="2193.323425925923" y="1026.0" />
+      <point x="2197.4879320987666" y="1026.0" />
+      <point x="46.25" y="-15.5" />
+    </edge>
+    <edge source="com.example.coursework.Services.AuthorizationService" target="com.example.coursework.Validators.AuthorizationValidator" relationship="DEPENDENCY">
+      <point x="46.25" y="-15.5" />
+      <point x="2197.4879320987666" y="1026.0" />
+      <point x="2193.323425925923" y="1026.0" />
+      <point x="2193.323425925923" y="926.0" />
+      <point x="2104.823425925923" y="926.0" />
+      <point x="49.0" y="15.5" />
+    </edge>
+    <edge source="com.example.coursework.Services.AuthorizationService" target="com.example.coursework.Data.Entities.User" relationship="DEPENDENCY">
+      <point x="46.25" y="-15.5" />
+      <point x="2197.4879320987666" y="1026.0" />
+      <point x="2193.323425925923" y="1026.0" />
+      <point x="2193.323425925923" y="926.0" />
+      <point x="2164.323425925923" y="926.0" />
+      <point x="2164.323425925923" y="551.0" />
+      <point x="1874.6241666666697" y="551.0" />
+      <point x="1874.6241666666697" y="511.0" />
+      <point x="2373.350524691359" y="511.0" />
+      <point x="-20.5" y="15.5" />
+    </edge>
+    <edge source="com.example.coursework.Validators.EmployeeValidator" target="com.example.coursework.Services.EmployeeService" relationship="DEPENDENCY">
+      <point x="-43.5" y="15.5" />
+      <point x="544.4158333333363" y="646.0" />
+      <point x="379.6421913580257" y="646.0" />
+      <point x="379.6421913580257" y="716.0" />
+      <point x="450.82342592592295" y="716.0" />
+      <point x="-40.75" y="-15.5" />
+    </edge>
+    <edge source="com.example.coursework.Services.EmployeeService" target="com.example.coursework.Validators.EmployeeValidator" relationship="DEPENDENCY">
+      <point x="-40.75" y="-15.5" />
+      <point x="450.82342592592295" y="716.0" />
+      <point x="379.6421913580257" y="716.0" />
+      <point x="379.6421913580257" y="646.0" />
+      <point x="544.4158333333363" y="646.0" />
+      <point x="-43.5" y="15.5" />
+    </edge>
+    <edge source="com.example.coursework.Services.AdminService" target="com.example.coursework.Data.Entities.Contract" relationship="DEPENDENCY">
+      <point x="-35.25" y="-15.5" />
+      <point x="443.82342592592295" y="1026.0" />
+      <point x="257.07342592592295" y="1026.0" />
+      <point x="257.07342592592295" y="976.0" />
+      <point x="207.14219135802568" y="976.0" />
+      <point x="207.14219135802568" y="196.0" />
+      <point x="951.323425925923" y="196.0" />
+      <point x="0.0" y="15.5" />
+    </edge>
+    <edge source="com.example.coursework.Controllers.AdminController" target="com.example.coursework.Data.Entities.Employee" relationship="CREATE">
+      <point x="-53.0" y="-15.5" />
+      <point x="101.57342592592272" y="1160.0" />
+      <point x="0.14219135802568417" y="1160.0" />
+      <point x="0.14219135802568417" y="72.0" />
+      <point x="440.9991666666697" y="72.0" />
+      <point x="-38.66666666666666" y="15.5" />
+    </edge>
+    <edge source="com.example.coursework.Services.AuthorizationService" target="com.example.coursework.Data.Repositories.UserRepository" relationship="TO_ONE">
+      <point x="-46.25" y="-15.5" />
+      <point x="2104.9879320987666" y="1026.0" />
+      <point x="2013.0137345679002" y="1026.0" />
+      <point x="2013.0137345679002" y="1006.0" />
+      <point x="2569.600524691359" y="1006.0" />
+      <point x="2569.600524691359" y="986.0" />
+      <point x="2515.323425925923" y="986.0" />
+      <point x="-37.75" y="15.5" />
+    </edge>
+    <edge source="com.example.coursework.Security.UserDetailsServiceImpl" target="com.example.coursework.Data.Entities.User" relationship="DEPENDENCY">
+      <point x="50.0" y="-15.5" />
+      <point x="2982.249166666669" y="1026.0" />
+      <point x="2937.249166666669" y="1026.0" />
+      <point x="2937.249166666669" y="551.0" />
+      <point x="1874.6241666666695" y="551.0" />
+      <point x="1874.6241666666697" y="511.0" />
+      <point x="2373.350524691359" y="511.0" />
+      <point x="-20.5" y="15.5" />
+    </edge>
+    <edge source="com.example.coursework.Data.Repositories.OsagoRepository" target="com.example.coursework.Data.Entities.Osago" relationship="DEPENDENCY">
+      <point x="0.0" y="-15.5" />
+      <point x="114.64219135802568" y="301.0" />
+      <point x="2217.073425925923" y="301.0" />
+      <point x="0.0" y="15.5" />
+    </edge>
+    <edge source="com.example.coursework.Controllers.AdminController" target="com.example.coursework.Services.OsagoService" relationship="DEPENDENCY">
+      <point x="53.0" y="-15.5" />
+      <point x="207.57342592592272" y="1160.0" />
+      <point x="484.07342592592295" y="1160.0" />
+      <point x="484.07342592592295" y="1140.0" />
+      <point x="162.39219135802568" y="1140.0" />
+      <point x="35.25" y="15.5" />
+    </edge>
+    <edge source="com.example.coursework.Data.Entities.Contract" target="com.example.coursework.Data.Entities.Osago" relationship="DEPENDENCY">
+      <point x="0.0" y="15.5" />
+      <point x="951.323425925923" y="196.0" />
+      <point x="2193.573425925923" y="196.0" />
+      <point x="-23.5" y="-15.5" />
+    </edge>
+    <edge source="com.example.coursework.Data.Entities.Osago" target="com.example.coursework.Data.Entities.Contract" relationship="DEPENDENCY">
+      <point x="-23.5" y="-15.5" />
+      <point x="2193.573425925923" y="196.0" />
+      <point x="951.323425925923" y="196.0" />
+      <point x="0.0" y="15.5" />
+    </edge>
+    <edge source="com.example.coursework.Data.Entities.Car" target="com.example.coursework.Data.Entities.Osago" relationship="TO_ONE">
+      <point x="18.5" y="-15.5" />
+      <point x="2188.073425925923" y="311.0" />
+      <point x="2285.323425925923" y="311.0" />
+      <point x="2285.323425925923" y="281.0" />
+      <point x="2248.4067592592564" y="281.0" />
+      <point x="31.333333333333258" y="15.5" />
+    </edge>
+    <edge source="com.example.coursework.Data.Entities.Osago" target="com.example.coursework.Data.Entities.Car" relationship="TO_ONE">
+      <point x="31.333333333333258" y="15.5" />
+      <point x="2248.4067592592564" y="281.0" />
+      <point x="2285.323425925923" y="281.0" />
+      <point x="2285.323425925923" y="311.0" />
+      <point x="2188.073425925923" y="311.0" />
+      <point x="18.5" y="-15.5" />
+    </edge>
+    <edge source="com.example.coursework.Services.AuthorizationService" target="com.example.coursework.Data.Entities.Car" relationship="DEPENDENCY">
+      <point x="46.25" y="-15.5" />
+      <point x="2197.4879320987666" y="1026.0" />
+      <point x="2193.323425925923" y="1026.0" />
+      <point x="2193.323425925923" y="926.0" />
+      <point x="2169.573425925923" y="926.0" />
+      <point x="0.0" y="15.5" />
+    </edge>
+    <edge source="com.example.coursework.Services.ContractService" target="com.example.coursework.Mail.MailSender" relationship="TO_ONE">
+      <point x="51.33333333333326" y="-15.5" />
+      <point x="877.6567592592562" y="851.0" />
+      <point x="1150.448425925923" y="851.0" />
+      <point x="1150.448425925923" y="841.0" />
+      <point x="1871.850524691359" y="841.0" />
+      <point x="31.5" y="15.5" />
+    </edge>
+    <edge source="com.example.coursework.Data.Repositories.CarRepository" target="com.example.coursework.Data.Entities.Car" relationship="DEPENDENCY">
+      <point x="0.0" y="-15.5" />
+      <point x="1131.323425925923" y="436.0" />
+      <point x="2169.573425925923" y="436.0" />
+      <point x="0.0" y="15.5" />
+    </edge>
+    <edge source="com.example.coursework.Controllers.MainController" target="com.example.coursework.Data.Entities.Role" relationship="DEPENDENCY">
+      <point x="37.25" y="-15.5" />
+      <point x="2273.1241666666697" y="1160.0" />
+      <point x="2626.1263271604926" y="1160.0" />
+      <point x="2626.1263271604926" y="1110.0" />
+      <point x="2639.073425925923" y="1110.0" />
+      <point x="2639.073425925923" y="426.0" />
+      <point x="2456.573425925923" y="426.0" />
+      <point x="2456.573425925923" y="396.0" />
+      <point x="2405.073425925923" y="396.0" />
+      <point x="20.25" y="15.5" />
+    </edge>
+    <edge source="com.example.coursework.Services.ContractService" target="com.example.coursework.Validators.ContractFormModelValidator" relationship="TO_ONE">
+      <point x="51.33333333333326" y="-15.5" />
+      <point x="877.6567592592562" y="851.0" />
+      <point x="1150.448425925923" y="851.0" />
+      <point x="1150.448425925923" y="791.0" />
+      <point x="1206.9158333333362" y="791.0" />
+      <point x="60.25" y="15.5" />
+    </edge>
+    <edge source="com.example.coursework.Data.Entities.User" target="com.example.coursework.Data.Entities.Role" relationship="TO_MANY">
+      <point x="-20.5" y="-15.5" />
+      <point x="2373.350524691359" y="436.0" />
+      <point x="2322.823425925923" y="436.0" />
+      <point x="2322.823425925923" y="416.0" />
+      <point x="2364.573425925923" y="416.0" />
+      <point x="-20.25" y="15.5" />
+    </edge>
+    <edge source="com.example.coursework.Services.OsagoService" target="com.example.coursework.Data.Entities.Contract" relationship="DEPENDENCY">
+      <point x="0.0" y="-15.5" />
+      <point x="127.14219135802568" y="1026.0" />
+      <point x="145.64219135802568" y="1026.0" />
+      <point x="145.64219135802568" y="996.0" />
+      <point x="22.142191358025684" y="996.0" />
+      <point x="22.142191358025684" y="196.0" />
+      <point x="951.323425925923" y="196.0" />
+      <point x="0.0" y="15.5" />
+    </edge>
+    <edge source="com.example.coursework.Validators.EmployeeValidator" target="com.example.coursework.Data.Entities.Employee" relationship="DEPENDENCY">
+      <point x="0.0" y="-15.5" />
+      <point x="587.9158333333363" y="561.0" />
+      <point x="489.82342592592295" y="561.0" />
+      <point x="489.82342592592295" y="112.0" />
+      <point x="484.6679938271593" y="112.0" />
+      <point x="484.6679938271593" y="52.0" />
+      <point x="479.6658333333363" y="52.0" />
+      <point x="0.0" y="15.5" />
+    </edge>
+    <edge source="com.example.coursework.Validators.AuthorizationValidator" target="com.example.coursework.Data.Entities.User" relationship="DEPENDENCY">
+      <point x="0.0" y="-15.5" />
+      <point x="2055.823425925923" y="551.0" />
+      <point x="1874.6241666666697" y="551.0" />
+      <point x="1874.6241666666697" y="511.0" />
+      <point x="2373.350524691359" y="511.0" />
+      <point x="-20.5" y="15.5" />
+    </edge>
+    <edge source="com.example.coursework.Services.AuthorizationService" target="com.example.coursework.Mail.MailSender" relationship="DEPENDENCY">
+      <point x="46.25" y="-15.5" />
+      <point x="2197.4879320987666" y="1026.0" />
+      <point x="2193.323425925923" y="1026.0" />
+      <point x="2193.323425925923" y="926.0" />
+      <point x="1947.323425925923" y="926.0" />
+      <point x="1947.323425925923" y="821.0" />
+      <point x="1861.850524691359" y="821.0" />
+      <point x="1861.850524691359" y="811.0" />
+      <point x="1808.850524691359" y="811.0" />
+      <point x="-31.5" y="15.5" />
+    </edge>
+    <edge source="com.example.coursework.Controllers.AuthorizationController" target="com.example.coursework.Services.AuthorizationService" relationship="DEPENDENCY">
+      <point x="0.0" y="-15.5" />
+      <point x="2710.7513271604926" y="1150.0" />
+      <point x="2795.6129320987666" y="1150.0" />
+      <point x="2795.6129320987666" y="1100.0" />
+      <point x="2197.4879320987666" y="1100.0" />
+      <point x="46.25" y="15.5" />
+    </edge>
+    <edge source="com.example.coursework.Services.ContractService" target="com.example.coursework.Data.Entities.User" relationship="DEPENDENCY">
+      <point x="0.0" y="-15.5" />
+      <point x="826.323425925923" y="801.0" />
+      <point x="979.1658333333363" y="801.0" />
+      <point x="979.1658333333363" y="686.0" />
+      <point x="1230.073425925923" y="686.0" />
+      <point x="1230.073425925923" y="551.0" />
+      <point x="1874.6241666666697" y="551.0" />
+      <point x="1874.6241666666697" y="511.0" />
+      <point x="2373.350524691359" y="511.0" />
+      <point x="-20.5" y="15.5" />
+    </edge>
+    <edge source="com.example.coursework.Data.Entities.Contract" target="com.example.coursework.Data.Entities.Driver" relationship="DEPENDENCY">
+      <point x="26.75" y="-15.5" />
+      <point x="978.073425925923" y="112.0" />
+      <point x="961.323425925923" y="112.0" />
+      <point x="961.323425925923" y="102.0" />
+      <point x="1979.0171913580257" y="102.0" />
+      <point x="1979.0171913580257" y="62.0" />
+      <point x="1656.3505246913592" y="62.0" />
+      <point x="30.666666666666742" y="15.5" />
+    </edge>
+    <edge source="com.example.coursework.Services.AuthorizationService" target="com.example.coursework.Validators.AuthorizationValidator" relationship="TO_ONE">
+      <point x="-46.25" y="-15.5" />
+      <point x="2104.9879320987666" y="1026.0" />
+      <point x="2013.0137345679002" y="1026.0" />
+      <point x="2013.0137345679002" y="946.0" />
+      <point x="2006.823425925923" y="946.0" />
+      <point x="-49.0" y="15.5" />
+    </edge>
+    <edge source="com.example.coursework.Validators.AuthorizationValidator" target="com.example.coursework.Services.AuthorizationService" relationship="TO_ONE">
+      <point x="-49.0" y="15.5" />
+      <point x="2006.823425925923" y="946.0" />
+      <point x="2013.0137345679002" y="946.0" />
+      <point x="2013.0137345679002" y="1026.0" />
+      <point x="2104.9879320987666" y="1026.0" />
+      <point x="-46.25" y="-15.5" />
+    </edge>
+    <edge source="com.example.coursework.Data.Repositories.UserRepository" target="com.example.coursework.Data.Entities.User" relationship="DEPENDENCY">
+      <point x="0.0" y="-15.5" />
+      <point x="2553.073425925923" y="551.0" />
+      <point x="1874.6241666666697" y="551.0" />
+      <point x="1874.6241666666697" y="511.0" />
+      <point x="2373.350524691359" y="511.0" />
+      <point x="-20.5" y="15.5" />
+    </edge>
+    <edge source="com.example.coursework.Services.AuthorizationService" target="com.example.coursework.Data.Entities.Role" relationship="DEPENDENCY">
+      <point x="46.25" y="-15.5" />
+      <point x="2197.4879320987666" y="1026.0" />
+      <point x="2193.323425925923" y="1026.0" />
+      <point x="2193.323425925923" y="926.0" />
+      <point x="2456.573425925923" y="926.0" />
+      <point x="2456.573425925923" y="396.0" />
+      <point x="2405.073425925923" y="396.0" />
+      <point x="20.25" y="15.5" />
+    </edge>
+    <edge source="com.example.coursework.Controllers.AdminController" target="com.example.coursework.Services.OsagoService" relationship="TO_ONE">
+      <point x="0.0" y="-15.5" />
+      <point x="154.57342592592272" y="1160.0" />
+      <point x="152.39219135802568" y="1160.0" />
+      <point x="152.39219135802568" y="1150.0" />
+      <point x="91.89219135802568" y="1150.0" />
+      <point x="-35.25" y="15.5" />
+    </edge>
+    <edge source="com.example.coursework.Controllers.ContractController" target="com.example.coursework.Services.ContractService" relationship="TO_ONE">
+      <point x="-57.33333333333326" y="-15.5" />
+      <point x="1484.2400925925897" y="976.0" />
+      <point x="821.323425925923" y="976.0" />
+      <point x="821.323425925923" y="946.0" />
+      <point x="787.823425925923" y="946.0" />
+      <point x="-38.5" y="15.5" />
+    </edge>
+    <edge source="com.example.coursework.Services.AuthorizationService" target="com.example.coursework.Services.ContractService" relationship="TO_ONE">
+      <point x="-46.25" y="-15.5" />
+      <point x="2104.9879320987666" y="1026.0" />
+      <point x="2013.0137345679002" y="1026.0" />
+      <point x="2013.0137345679002" y="956.0" />
+      <point x="821.323425925923" y="956.0" />
+      <point x="821.323425925923" y="946.0" />
+      <point x="787.823425925923" y="946.0" />
+      <point x="-38.5" y="15.5" />
+    </edge>
+    <edge source="com.example.coursework.Services.ContractService" target="com.example.coursework.Services.AuthorizationService" relationship="TO_ONE">
+      <point x="-38.5" y="15.5" />
+      <point x="787.823425925923" y="946.0" />
+      <point x="821.323425925923" y="946.0" />
+      <point x="821.323425925923" y="956.0" />
+      <point x="2013.0137345679002" y="956.0" />
+      <point x="2013.0137345679002" y="1026.0" />
+      <point x="2104.9879320987666" y="1026.0" />
+      <point x="-46.25" y="-15.5" />
+    </edge>
+    <edge source="com.example.coursework.Services.ContractService" target="com.example.coursework.Services.DriverService" relationship="TO_ONE">
+      <point x="51.33333333333326" y="-15.5" />
+      <point x="877.6567592592562" y="851.0" />
+      <point x="1150.448425925923" y="851.0" />
+      <point x="1150.448425925923" y="791.0" />
+      <point x="1517.0408333333362" y="791.0" />
+      <point x="34.5" y="15.5" />
+    </edge>
+    <edge source="com.example.coursework.Data.Entities.User" target="com.example.coursework.Data.Entities.Contract" relationship="DEPENDENCY">
+      <point x="20.5" y="-15.5" />
+      <point x="2414.350524691359" y="406.0" />
+      <point x="2333.823425925923" y="406.0" />
+      <point x="2333.823425925923" y="196.0" />
+      <point x="951.323425925923" y="196.0" />
+      <point x="0.0" y="15.5" />
+    </edge>
+    <edge source="com.example.coursework.Data.Entities.Contract" target="com.example.coursework.Data.Entities.User" relationship="DEPENDENCY">
+      <point x="0.0" y="15.5" />
+      <point x="951.323425925923" y="196.0" />
+      <point x="2333.823425925923" y="196.0" />
+      <point x="2333.823425925923" y="406.0" />
+      <point x="2414.350524691359" y="406.0" />
+      <point x="20.5" y="-15.5" />
+    </edge>
+    <edge source="com.example.coursework.Services.EmployeeService" target="com.example.coursework.Validators.EmployeeValidator" relationship="TO_ONE">
+      <point x="40.75" y="-15.5" />
+      <point x="532.323425925923" y="716.0" />
+      <point x="592.9158333333363" y="716.0" />
+      <point x="592.9158333333363" y="636.0" />
+      <point x="631.4158333333363" y="636.0" />
+      <point x="43.5" y="15.5" />
+    </edge>
+    <edge source="com.example.coursework.Validators.EmployeeValidator" target="com.example.coursework.Services.EmployeeService" relationship="TO_ONE">
+      <point x="43.5" y="15.5" />
+      <point x="631.4158333333363" y="636.0" />
+      <point x="592.9158333333363" y="636.0" />
+      <point x="592.9158333333363" y="716.0" />
+      <point x="532.323425925923" y="716.0" />
+      <point x="40.75" y="-15.5" />
+    </edge>
+    <edge source="com.example.coursework.Data.Entities.Car" target="com.example.coursework.Data.Entities.Contract" relationship="DEPENDENCY">
+      <point x="-18.5" y="-15.5" />
+      <point x="2151.073425925923" y="321.0" />
+      <point x="2274.573425925923" y="321.0" />
+      <point x="2274.573425925923" y="196.0" />
+      <point x="951.323425925923" y="196.0" />
+      <point x="0.0" y="15.5" />
+    </edge>
+    <edge source="com.example.coursework.Data.Entities.Contract" target="com.example.coursework.Data.Entities.Car" relationship="DEPENDENCY">
+      <point x="0.0" y="15.5" />
+      <point x="951.323425925923" y="196.0" />
+      <point x="2274.573425925923" y="196.0" />
+      <point x="2274.573425925923" y="321.0" />
+      <point x="2151.073425925923" y="321.0" />
+      <point x="-18.5" y="-15.5" />
+    </edge>
+    <edge source="com.example.coursework.Validators.ContractFormModelValidator" target="com.example.coursework.Data.Entities.ContractFormModel" relationship="DEPENDENCY">
+      <point x="0.0" y="-15.5" />
+      <point x="1146.6658333333362" y="706.0" />
+      <point x="1336.948425925923" y="706.0" />
+      <point x="1336.948425925923" y="686.0" />
+      <point x="1323.698425925923" y="686.0" />
+      <point x="-45.75" y="15.5" />
+    </edge>
+    <edge source="com.example.coursework.Services.CarService" target="com.example.coursework.Data.Repositories.CarRepository" relationship="DEPENDENCY">
+      <point x="30.25" y="-15.5" />
+      <point x="880.9720679012335" y="716.0" />
+      <point x="1154.4158333333362" y="716.0" />
+      <point x="1154.4158333333362" y="676.0" />
+      <point x="1167.323425925923" y="676.0" />
+      <point x="36.0" y="15.5" />
+    </edge>
+    <edge source="com.example.coursework.Data.Repositories.ContractRepository" target="com.example.coursework.Data.Entities.Contract" relationship="DEPENDENCY">
+      <point x="0.0" y="-15.5" />
+      <point x="0.0" y="15.5" />
+    </edge>
+    <edge source="com.example.coursework.Data.Entities.Car" target="com.example.coursework.Data.Entities.Osago" relationship="DEPENDENCY">
+      <point x="-18.5" y="-15.5" />
+      <point x="2151.073425925923" y="321.0" />
+      <point x="2274.573425925923" y="321.0" />
+      <point x="2274.573425925923" y="291.0" />
+      <point x="2217.073425925923" y="291.0" />
+      <point x="0.0" y="15.5" />
+    </edge>
+    <edge source="com.example.coursework.Data.Entities.Osago" target="com.example.coursework.Data.Entities.Car" relationship="DEPENDENCY">
+      <point x="0.0" y="15.5" />
+      <point x="2217.073425925923" y="291.0" />
+      <point x="2274.573425925923" y="291.0" />
+      <point x="2274.573425925923" y="321.0" />
+      <point x="2151.073425925923" y="321.0" />
+      <point x="-18.5" y="-15.5" />
+    </edge>
+    <edge source="com.example.coursework.Services.OsagoService" target="com.example.coursework.Data.Entities.Osago" relationship="CREATE">
+      <point x="-47.0" y="-15.5" />
+      <point x="80.14219135802568" y="1026.0" />
+      <point x="11.142191358025684" y="1026.0" />
+      <point x="11.142191358025684" y="291.0" />
+      <point x="2185.7400925925895" y="291.0" />
+      <point x="-31.333333333333258" y="15.5" />
+    </edge>
+    <edge source="com.example.coursework.Services.EmployeeService" target="com.example.coursework.Data.Repositories.EmployeeRepository" relationship="DEPENDENCY">
+      <point x="-40.75" y="-15.5" />
+      <point x="450.82342592592295" y="716.0" />
+      <point x="379.6421913580257" y="716.0" />
+      <point x="379.6421913580257" y="646.0" />
+      <point x="341.4158333333364" y="646.0" />
+      <point x="-46.5" y="15.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic" zoom="0.3388249922287846" showDependencies="true" x="1598.5" y="644.0" />
+  <SelectedNodes />
+  <Categories />
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

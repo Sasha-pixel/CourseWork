@@ -21,7 +21,7 @@ public class ContractController {
 
     @GetMapping("/makeOrder")
     public String makeOrder(@AuthenticationPrincipal User user, Model model) {
-        if (!user.getActivationCode().isEmpty())
+        if (user.getActivationCode() != null)
             return "redirect:/main";
         model.addAttribute("user", user);
         model.addAttribute("orderForm", new ContractFormModel());
